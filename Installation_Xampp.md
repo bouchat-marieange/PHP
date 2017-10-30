@@ -35,7 +35,8 @@ Dans la console taper:
 Cd / --> cd var --> cd www --> sudo Chmod 777 html
 
 * Dans la console
-**user@nb25:/var/www$ sudo chmod 777 html**
+**
+user@nb25:/var/www$ sudo chmod 777 html**
 
 
 * Aller ensuite avec l'explorateur de fichier de l'ordi dans le dossier var/www/html
@@ -65,4 +66,13 @@ Si la page affiche bonjour c'est ok tout fonctionne.
 * Pour afficher nos exercices, aller sur notre navigateur et taper dans la barre d'adresse localhost/PHP ou localhost/mon_dossier_exercice.
 
 * Astuce:  lorsque l'on tape seulement localhost dans la barre d'adresse, la liste des sous-dossiers se situant dans html apparait et on peut selectionner le dossier contenant nos exercices.
+
+## Lorsque qu'un fichier apparait vérouiller en écriture et renvoie une erreur de permission, il faut le chmoder via la console. 
+
+* Se rendre dans le dossier ou se trouve le fichier vérouiller (il apparait avec un cadena sur son icone)
+* Ouvrir la console avec clic droit "Open in Terminal" dans le dossier où se trouve le fichier problèmatique.
+* Dans la console taper:
+    **user@nb25:/var/www/html/PHP$ sudo chmod 777 index.php **
+
+
 
