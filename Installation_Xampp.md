@@ -67,12 +67,12 @@ Si la page affiche bonjour c'est ok tout fonctionne.
 
 * Astuce:  lorsque l'on tape seulement localhost dans la barre d'adresse, la liste des sous-dossiers se situant dans html apparait et on peut selectionner le dossier contenant nos exercices.
 
-## Lorsque qu'un fichier apparait vérouiller en écriture et renvoie une erreur de permission, il faut le chmoder via la console. 
+## Lorsque qu'un fichier apparait vérouillé en écriture et renvoie une erreur de permission, il faut le chmoder via la console. 
 
 * Se rendre dans le dossier ou se trouve le fichier vérouiller (il apparait avec un cadena sur son icone)
 * Ouvrir la console avec clic droit "Open in Terminal" dans le dossier où se trouve le fichier problèmatique.
 * Dans la console taper:
-    **user@nb25:/var/www/html/PHP$ sudo chmod 777 index.php **
+**user@nb25:/var/www/html/PHP$ sudo chmod 777 index.php**
 
 
 
