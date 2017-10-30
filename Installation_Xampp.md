@@ -71,7 +71,7 @@ Si la page affiche bonjour c'est ok tout fonctionne.
 
 * Se rendre dans le dossier ou se trouve le fichier vérouiller (il apparait avec un cadena sur son icone)
 * Ouvrir la console avec clic droit "Open in Terminal" dans le dossier où se trouve le fichier problèmatique.
-* Dans la console taper:
+* Dans la console taper sudo chmod 777 nom_du_fichier.php:
 **user@nb25:/var/www/html/PHP$ sudo chmod 777 index.php**
 
 
