@@ -235,6 +235,87 @@ $age_du_visiteur = 17;
 ````
 *************************************************************************************************
 
+## Les conditions
+
+Dans la vie de tout les jours, nous avons appris à penser les évènements qui nous entoure sous forme d'hypothèse. Si telle condition est respespectée alors nous feront ceci , si ce n'est pas le cas alors nous feront cela. 
+
+En programmation, on appelle ces hypothèses des conditions. La forme la plus utilisée est le if/else
+
+````php
+if( condition ) {
+   // code à n'exécuter que si la condition est TRUE
+  echo "La condition est vraie.";
+ } else {
+   // code à n'exécuter que si la condition est FALSE
+   echo "La condition est fausse.";
+ }
+````
+
+Pour exprimer tes conditons, tu as à ta disposition plusieurs types d'opérateurs
+
+== : égal à
+!= : différent de
+> : plus grand que 
+< : plus petit que
+>= : plus grand ou égal à 
+>= : plus petit ou égal à 
+
+Voici un exemple concret avec les vêtements à porter selon la météo (la température)
+
+````php
+if( $temperature > 21 ) {
+  // code à exécuter si la condition est TRUE
+  $vetement_du_jour = "T-shirt";
+ } else {
+   // code à exécuter si la condition est FALSE
+   $vetement_du_jour = "Pull-over";
+ }
+````
+
+### Combiner des conditions
+
+#### Condition 1 ET/OU condition 2
+
+On peut vérifier des conditions mutliples (plusieurs conditions combinées) , en utilisant les mots-clef AND (et) ou OR (ou)
+
+Exemeple:
+
+````php
+if ( $age <= 12 AND $langue == "français" )
+````
+
+### Conditions hiérarchiques
+
+On peut également imbriquer des conditions les unes dans les autres. Attention à bien placer les accolades.
+
+
+**Astuce:** Utilise l'indentation du code pour t'aider à t'y retrouver visuelement.
+
+````php
+if ($genre == 'femme'){
+
+	// Ici, du code à exécuter si le genre est "femme"
+
+	if ( $age <= 12 and $langue == "français" ) {
+		// Ici, du code à exécuter si le genre est "femme",  que l'âge est inférieur à 13 et que la langue est "français"
+		...
+	} else{
+		// Ici, du code à exécuter si le genre est "femme",  et que l'âge est supérieur à 13 ou que la langue n'est pas "français"
+		...
+	}
+
+} else {
+	// Ici, du code à exécuter si le genre n'est pas "femme"
+
+	if ( $age <= 12 and $langue == "français" ) {
+		// Ici, du code à exécuter si le genre n'est pas "femme", que l'âge est inférieur à 13 et que la langue est "français"
+		...
+	}
+}
+````
+
+
+
 
 
 

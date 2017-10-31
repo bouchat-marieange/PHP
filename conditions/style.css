@@ -1,0 +1,27 @@
+*
+{
+  font-family: Arial, sans-serif;
+  color: grey;
+}
+
+h1, h2, h3, h4, h5
+{
+  color : #000;
+}
+
+p
+{
+  font-size: 1em;
+  font-weight: lighter;
+}
+
+.enonce
+{
+  font-style: italic;
+}
+
+.reponse
+{
+  color : blue;
+  margin-left: 25px;
+}
