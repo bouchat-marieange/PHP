@@ -37,6 +37,8 @@
         ?>
       </p>
 
+
+
       <h2>Exercice 2</h2>
 
       <p class="enonce">
@@ -64,6 +66,8 @@
         ?>
       </p>
 
+
+
       <h4>Version parentale</h4>
       <p class="enonce">
         Fait? Bravo. A présent, modifie ton script pour représenter plutôt comment tes parents s'exprimeraient.
@@ -82,6 +86,7 @@
         };
         ?>
       </p>
+
 
       <h4>Gradation saleté chambre (if elseif)</h4>
       <p class="enonce">
@@ -167,6 +172,8 @@
         ?>
       </p>
 
+
+
       <h3>2. Affiche une salutation différente selon l'âge de l'utilisateur</h3>
 
       <p class="enonce">
@@ -197,7 +204,30 @@
 
 
 
+      <h3>3. Affiche une salutation différente selon l'âge et le genre de l'utilisateur</h3>
 
+      <p class="enonce">
+        Complète le formulaire de l'exercice précédent en ajoutant une deuxième question :
+        "Homme ou Femme?" (champ de type Radio).
+        Si le genre est féminin, adapte la réponse de l'âge correspondant au genre féminin.<br/>
+        Par exemple, si l'âge est entre 12 et 18 ans et le genre féminin, affiche "Salut l'adolescente!" sinon affiche "Salut l'adolescent!".<br/>
+        Idem pour les autres tranches d'âge.<br/>
+        Astuce: Exploite le fait que l'on puisse mettre des conditions dans des conditions.
+      </p>
+
+      <p class="reponse">
+        <form method="get" action="traitement.php">
+
+          <label for="age_utilisateur">Quel est votre âge :</label>
+          <input type="number" name="age_utilisateur" id="age_utilisateur"/><br/>
+
+          <label for="genre">Homme ou Femme ?</label><br/>
+            <INPUT type= "radio" name="genre" value="femme"> Femme<br/>
+            <INPUT type= "radio" name="genre" value="homme"> Homme<br/>
+
+          <input type="submit" value="Envoyer" /><!-- Une fois que l'utilisateur à cliquer sur le bouton "Envoyer", il est automatiquement rediriger vers la page traitement.php qui va recevoir les données qu'il a encodées et va les stockés dans une variable pour pouvoir interagir avec celle-ci. Par exemple afficher un message en fonction de la valeur envoyée. -->
+        </form>
+      </p>
 
 
   </body>
