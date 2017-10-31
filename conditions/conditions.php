@@ -229,6 +229,42 @@
         </form>
       </p>
 
+      <h3>4. A Affiche une salutation différente selon l'âge, le genre de l'utilisateur et sa langue maternelle</h3>
+
+      <p class="enonce">
+        Complète le formulaire de l'exercice précédent en ajoutant une troisième question : "Parles-tu anglais?" (champ de type Radio: réponses possibles: "yes" ou "non" ). Adapte le traitement du formulaire en fonction:
+        <ul>
+        <li>Si l'âge est inférieur à 12 ans et que l'utilisateur répond "yes", retourne: "Hello boy!" ou "Hello Girl!" selon son genre.</li>
+        <li>Si l'âge est entre 12 et 18 ans et que l'utilisateur répond "yes", affiche "Hello Teenage boy!" ou "Hello Teenage girl!" selon son genre.</li>
+        <li>Si l'âge est entre 18 et 115 ans et que l'utilisateur répond "yes", affiche "Hello Sir!" ou "Hello Lady!" selon son genre. - Si l'âge est supérieur à 115 ans et que l'utilisateur répond "yes", affiche "Wow! Still alive, old man?" ou "old lady?" selon son genre.</li>
+      </p>
+
+      <p class="reponse">
+
+        <form method="get" action="traitement.php">
+
+          <p>
+          <label for="age_utilisateur">Quel est votre âge :</label>
+          <input type="number" name="age_utilisateur" id="age_utilisateur"/><br/>
+          </p>
+
+          <p>
+          <label for="genre">Homme ou Femme ?</label><br/>
+            <input type= "radio" name="genre" value="femme"> Femme<br/>
+            <input type= "radio" name="genre" value="homme"> Homme<br/>
+          </p>
+
+          <p>
+          <label for="speak_english">Parlez-vous anglais?</label><br/>
+          <input type= "radio" name="english" value="oui">Oui<br/>
+          <input type= "radio" name="english" value="non">Non<br/>
+          </p>
+
+          <input type="submit" value="Envoyer" /><!-- Une fois que l'utilisateur à cliquer sur le bouton "Envoyer", il est automatiquement rediriger vers la page traitement.php qui va recevoir les données qu'il a encodées et va les stockés dans une variable pour pouvoir interagir avec celle-ci. Par exemple afficher un message en fonction de la valeur envoyée. -->
+
+        </form>
+      </p>
+
 
   </body>
 
