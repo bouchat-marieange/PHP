@@ -12,7 +12,7 @@
   <body>
     <h1>Conditions</h1>
 
-    <h2>Exercice 1<h2>
+    <h2>Exercice 1</h2>
 
       <p class="enonce">
         Change la condition pour qu'elle devienne: "si la température est plus grande ou égale à 15 degrés".</p>
@@ -217,17 +217,25 @@
 
       <p class="reponse">
         <form method="get" action="traitement.php">
+          <p>
+            <label for="age_utilisateur">Quel est votre âge :</label>
+            <input type="number" name="age_utilisateur" id="age_utilisateur"/><br/>
+          </p>
 
-          <label for="age_utilisateur">Quel est votre âge :</label>
-          <input type="number" name="age_utilisateur" id="age_utilisateur"/><br/>
-
+          <p>
           <label for="genre">Homme ou Femme ?</label><br/>
-            <INPUT type= "radio" name="genre" value="femme"> Femme<br/>
-            <INPUT type= "radio" name="genre" value="homme"> Homme<br/>
+            <input type= "radio" name="genre" value="femme"> Femme<br/>
+            <input type= "radio" name="genre" value="homme"> Homme<br/>
+          </p>
 
-          <input type="submit" value="Envoyer" /><!-- Une fois que l'utilisateur à cliquer sur le bouton "Envoyer", il est automatiquement rediriger vers la page traitement.php qui va recevoir les données qu'il a encodées et va les stockés dans une variable pour pouvoir interagir avec celle-ci. Par exemple afficher un message en fonction de la valeur envoyée. -->
+          <p>
+            <input type="submit" value="Envoyer" />
+          </p>
+
         </form>
       </p>
+      <!-- Une fois que l'utilisateur à cliquer sur le bouton "Envoyer", il est automatiquement rediriger vers la page traitement.php qui va recevoir les données qu'il a encodées et va les stockés dans une variable pour pouvoir interagir avec celle-ci. Par exemple afficher un message en fonction de la valeur envoyée. -->
+
 
       <h3>4. A Affiche une salutation différente selon l'âge, le genre de l'utilisateur et sa langue maternelle</h3>
 
@@ -244,26 +252,28 @@
         <form method="get" action="traitement.php">
 
           <p>
-          <label for="age_utilisateur">Quel est votre âge :</label>
-          <input type="number" name="age_utilisateur" id="age_utilisateur"/><br/>
+            <label for="age_utilisateur">Quel est votre âge :</label>
+            <input type="number" name="age_utilisateur" id="age_utilisateur"/><br/>
           </p>
 
           <p>
-          <label for="genre">Homme ou Femme ?</label><br/>
-            <input type= "radio" name="genre" value="femme"> Femme<br/>
-            <input type= "radio" name="genre" value="homme"> Homme<br/>
+            <label for="genre">Homme ou Femme ?</label><br/>
+              <input type= "radio" name="genre" value="femme"> Femme<br/>
+              <input type= "radio" name="genre" value="homme"> Homme<br/>
           </p>
 
           <p>
-          <label for="speak_english">Parlez-vous anglais?</label><br/>
-          <input type= "radio" name="english" value="oui">Oui<br/>
-          <input type= "radio" name="english" value="non">Non<br/>
+            <label for="speak_english">Parlez-vous anglais?</label><br/>
+              <input type= "radio" name="english" value="oui">Oui<br/>
+              <input type= "radio" name="english" value="non">Non<br/>
           </p>
 
-          <input type="submit" value="Envoyer" /><!-- Une fois que l'utilisateur à cliquer sur le bouton "Envoyer", il est automatiquement rediriger vers la page traitement.php qui va recevoir les données qu'il a encodées et va les stockés dans une variable pour pouvoir interagir avec celle-ci. Par exemple afficher un message en fonction de la valeur envoyée. -->
+          <input type="submit" value="Envoyer" />
 
         </form>
       </p>
+      <!-- Une fois que l'utilisateur à cliquer sur le bouton "Envoyer", il est automatiquement rediriger vers la page traitement.php qui va recevoir les données qu'il a encodées et va les stockés dans une variable pour pouvoir interagir avec celle-ci. Par exemple afficher un message en fonction de la valeur envoyée.-->
+
 
 
   </body>
