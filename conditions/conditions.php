@@ -276,6 +276,55 @@
 
 
 
+      <h3>5. Retour à l'école de l'échec et du jugement</h3>
+
+      <p class="enonce">
+        Crée un petit formulaire qui réagit à la note de l'étudiant.<br/>
+        <ul>
+          <li>Si la note est égale à 1, 2 ou 3, affiche "Ce travail est nul."</li>
+          <li>Si la note est égale à 6, 7, 8 ou 9, affiche "Ce travail n'est pas terrible."</li>
+          <li>Si la note est égale à 10, affiche "Tout juste!"</li>
+          <li>Si la note est égale à 11, 12, 13 ou 14, affiche "C'est pas mal."</li>
+          <li>Si la note est 15, 16, 17, ou 18, affiche "Bravo!".</li>
+          <li>Si la note est 19 ou 20, affiche "Police! Arrêtez ce tricheur!".</li>
+        </ul>
+      </p>
+
+      <p class="reponse">
+        <form method="get" action="traitement.php">
+
+          <p>
+            <label for="note_etudiant">Entrez votre note (située entre 0 et 20)</label><br/>
+            <input type="number" name="note" id="note"/><br/>
+          </p>
+
+          <p>
+            <input type="submit" value="Envoyer" />
+          </p>
+
+        </form>
+      </p>
+
+
+      <h3>6. La structure "Switch"</h3>
+
+      <p class="enonce">
+        Crée un nouveau fichier conditions-switch.php et refais l'exercice précédent mais en remplaçant ta structure if/else par une structure switch.<br/>
+        <ul>
+          <li>Si la note est égale à 1, 2 ou 3, affiche "Ce travail est nul."</li>
+          <li>Si la note est égale à 6, 7, 8 ou 9, affiche "Ce travail n'est pas terrible."</li>
+          <li>Si la note est égale à 10, affiche "Tout juste!"</li>
+          <li>Si la note est égale à 11, 12, 13 ou 14, affiche "C'est pas mal."</li>
+          <li>Si la note est 15, 16, 17, ou 18, affiche "Bravo!".</li>
+          <li>Si la note est 19 ou 20, affiche "Police! Arrêtez ce tricheur!".</li>
+        </ul>
+        <br/>
+        Avantage : on n'a plus besoin de mettre le double égal ! <br/>
+        Défaut : ça ne marche pas avec les autres symboles (< > <= >= !=). <br/>
+        En clair, le switch ne peut tester que l'égalité.
+      </p>
+
+
   </body>
 
 </html>

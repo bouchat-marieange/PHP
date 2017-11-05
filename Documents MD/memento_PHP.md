@@ -167,7 +167,7 @@ Une variable est donc une petite information stockée en mémoire temporairement
 
 On peut donc créer des variables quand on a besoins de retenir des informations.
 
-#### Un nom est un valeur
+#### Un nom et une valeur
 
 Une variable est toujours constituée de deux éléments:
 
@@ -315,7 +315,9 @@ if ($genre == 'femme'){
 ````
 
 
+### La structure "Switch"
 
+Dans le switch, on indique qu début sur quelle variable on travaille. On dit à PHP par exemple, je vais tester la variable $note. Ensuite on va utiliser des **case** pour comparer la valeur de la variable 
 
 
 

@@ -85,4 +85,38 @@
   {
     echo("Êtes-vous Benjamin Button ou Marty McFly, car vous avez encodé un âge négatif !");
   };
+
+
+
+  $note = $_GET['note'];
+  echo ($note . " - " );
+
+  if ($note <= 3)
+  {
+    echo ("Ce travail est nul !");
+  }
+  elseif ($note <=5 or $note <= 9 )
+  {
+    echo ("Ce travail n'est pas terrible !");
+  }
+  elseif ($note == 10)
+  {
+    echo ("Tout juste !");
+  }
+  elseif ($note <=11 or $note <=14 )
+  {
+    echo ("C'est pas mal !");
+  }
+  elseif ($note <=15 or $note <=18 )
+  {
+    echo ("Bravo !");
+  }
+  elseif ($note ==19 or $note ==20 )
+  {
+    echo ("Police ! Arrêtez ce tricheur !");
+  };
+
+
+  
+
 ?>
