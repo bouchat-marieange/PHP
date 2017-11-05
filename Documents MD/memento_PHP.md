@@ -317,10 +317,160 @@ if ($genre == 'femme'){
 
 ### La structure "Switch"
 
-Dans le switch, on indique qu début sur quelle variable on travaille. On dit à PHP par exemple, je vais tester la variable $note. Ensuite on va utiliser des **case** pour comparer la valeur de la variable 
+Dans le switch, on indique qu début sur quelle variable on travaille. On dit à PHP par exemple, je vais tester la variable $note. Ensuite on va utiliser des **case** pour comparer la valeur de la variable avec différentes valeurs présentent dans chaque case (exemple : case 0, case 10), ce qui peut se traduire par si la valeur == 0, si la valeur == 10, etc ...
+
+**Avantages : **On na plus besoin de mettre le double égal.
+**Défaut : **Ca ne marche pas avec les autres symboles (< > <= >= !=). Le switch ne peut tester que l'égalité.
+
+####Version if/else
+
+````php
+<?php
+if ($i == 0) {
+    echo "i égal 0";
+} elseif ($i == 1) {
+    echo "i égal 1";
+} elseif ($i == 2) {
+    echo "i égal 2";
+}
+?>
+````
 
 
+####Version switch
+
+````php
+<?php
+switch ($i) {
+    case 0:
+        echo "i égal 0";
+        break;
+    case 1:
+        echo "i égal 1";
+        break;
+    case 2:
+        echo "i égal 2";
+        break;
+}
+?>
+````
 
 
+**Un autre exemple avec une chaîne de caractère**
+
+````php
+<?php
+switch ($i) {
+    case "apple":
+        echo "i est une pomme";
+        break;
+    case "bar":
+        echo "i est une barre";
+        break;
+    case "cake":
+        echo "i est un gateau";
+        break;
+}
+?>
+````
+
+**Très important:** 
+
+L'instruction switch exécute chacune des clauses dans l'ordre. L'instruction switch est exécutée ligne par ligne. Au début, aucun code n'est exécuté. Seulement lorqu'un case est vérifié, PHP exécute alors les instructions correspondantes.PHP continue d'exécuter les instructions jusqu'à la fin du bloc d'instruction du switch, ou bien dès qu'il trouve l'instruction break.Si vous ne pouvez pas utiliser l'instruction break à la fin de l'instruction case, PHP continuera à exécuter toutes les instructions qui suivents.
+
+Par exemple:
+
+````php
+<?php
+switch ($i) {
+    case 0:
+        echo "i égal 0";
+    case 1:
+        echo "i égal 1";
+    case 2:
+        echo "i égal 2";
+}
+?>
+````
+Dans cet exemple, si $i est égal à 0, PHP va exécuter quand même toutes les instructions qui suivent! Si $i est égal à 1, PHP exécutera les deux dernières instructions. Et seulement si $i est égal à 2, vous obtiendrez le résultat escompté, c'est-à-dire, l'affichage de "i égal 2". Donc, l'important est de ne pas oublier l'instruction break (même s'il est possible que vous l'omettiez dans certaines circonstances).
 
 
+Dans une commande switch, une condition n'est évaluée qu'une fois, et le résultat est comparé à chaque case. Dans une structure elseif, les conditions sont évaluées à chaque comparaison. Si votre condition est plus compliquée qu'une simple comparaison, ou bien fait partie d'une boucle, switch sera plus rapide.
+
+La liste de commandes d'un case peut être vide, auquel cas PHP utilisera la liste de commandes du cas suivant.
+
+
+````php
+<?php
+switch ($i) {
+case 0:
+case 1:
+case 2:
+    echo "i est plus petit que 3 mais n'est pas négatif";
+    break;
+case 3:
+    echo "i égal 3";
+}
+?>
+````
+
+
+Un cas spécial est default. Ce cas est utilisé lorsque tous les autres cas ont échoué. Par exemple :
+
+````php
+<?php
+switch ($i) {
+    case 0:
+        echo "i égal 0";
+        break;
+    case 1:
+        echo "i égal 1";
+        break;
+    case 2:
+        echo "i égal 2";
+        break;
+    default:
+       echo "i n'est ni égal à 2, ni à 1, ni à 0.";
+}
+?>
+````
+
+Une autre chose à mentionner est que la valeur du case peut être toute expression de type scalaire, c'est-à-dire nombre entier, nombre à virgule flottante et chaîne de caractères. Les tableaux sont sans intérêt dans ce contexte-là.
+
+Syntaxe alternative avec endswitch
+
+````php
+<?php
+switch ($i):
+    case 0:
+        echo "i égal 0";
+        break;
+    case 1:
+        echo "i égal 1";
+        break;
+    case 2:
+        echo "i égal 2";
+        break;
+    default:
+        echo "i n'est ni égal à 2, ni à 1, ni à 0";
+endswitch;
+?>
+````
+
+Il est possible d'utiliser un point-virgule plutôt que deux points après un case, comme ceci :
+
+````php
+<?php
+switch($beer)
+{
+    case 'leffe';
+    case 'grimbergen';
+    case 'guinness';
+        echo 'Bon choix';
+    break;
+    default;
+        echo 'Merci de faire un choix...';
+    break;
+}
+?>
+````
