@@ -306,6 +306,7 @@
       </p>
 
 
+
       <h3>6. La structure "Switch"</h3>
 
       <p class="enonce">
@@ -324,6 +325,115 @@
         En clair, le switch ne peut tester que l'égalité.
       </p>
 
+      <p class="reponse">
+        <form method="get" action="conditions-switch.php">
+
+          <p>
+            <h4>Version Switch </h4>
+            <label for="note_etudiant">Entrez votre note (située entre 0 et 20)</label><br/>
+            <input type="number" name="note" id="note"/><br/>
+          </p>
+
+          <p>
+            <input type="submit" value="Envoyer" />
+          </p>
+
+        </form>
+      </p>
+
+
+      <h3>7. Écrire une expression conditionnelle...</h3>
+
+      <p class="enonce">
+        ... utilisant les variables $age et $sexe dans une instruction if/else<br/>
+        pour sélectionner une personne de sexe féminin dont l’age est compris entre 21 et 40 ans <br/>
+        et afficher un message de bienvenue approprié.<br/>
+        <ul>
+          <li>Message si OK: "Bonjour, bienvenue parmi nous!"</li>
+          <li>Message si KO: "Désolé, vous ne remplissez pas les critères de sélection."</li>
+        </ul>
+      </p>
+
+      <p class="reponse">
+        <form method="get" action="traitement.php">
+          <p>
+          <label for="genre_selection">Homme ou Femme ?</label><br/>
+            <input type= "radio" name="genre_selection" value="femme"> Femme<br/>
+            <input type= "radio" name="genre_selection" value="homme"> Homme<br/>
+          </p>
+
+          <p>
+            <label for="age_selection">Entrez votre age</label><br/>
+            <input type="number" name="age_selection" id="age_selection"/><br/>
+          </p>
+
+          <p>
+            <input type="submit" value="Envoyer" />
+          </p>
+        </form>
+      </p>
+
+
+
+      <h3>8. La réécrire, mais sans ELSE.</h3>
+
+      <p class="enonce">
+        Il est possible de réaliser exactement la même chose, mais avec une simple instruction if (sans else). Essaye.
+      </p>
+
+      <p class="reponse">
+        <form method="get" action="traitement.php">
+          <p>
+          <label for="genre_selection">Homme ou Femme ?</label><br/>
+            <input type= "radio" name="genre_selection" value="femme"> Femme<br/>
+            <input type= "radio" name="genre_selection" value="homme"> Homme<br/>
+          </p>
+
+          <p>
+            <label for="age_selection">Entrez votre age</label><br/>
+            <input type="number" name="age_selection" id="age_selection"/><br/>
+          </p>
+
+          <p>
+            <input type="submit" value="Envoyer" />
+          </p>
+        </form>
+      </p>
+
+      <h3>9. La stucture "ternaire"</h3>
+
+      <p class="enonce">
+        Uniquement théorie sur la structure ternaire voir:<br/>
+
+        [https://github.com/becodeorg/Lovelace-promo-2/blob/master/Parcours/PHP/php-exercices-conditions.md]<br/>
+
+        ou<br/>
+
+        [https://github.com/bouchat-marieange/PHP/blob/master/Documents%20MD/memento_PHP.md]
+      </p>
+
+
+      <h3>10. Exercice ternaire</h3>
+
+      <p class="enonce">
+        Dans un script ternaire.php déclare à l'aide d'une expression ternaire, <br/>
+        une variable $bonjour dont la valeur est un message de salutation selon qu'une autre variable $genre soit 'H' ou 'F'.
+        Termine par afficher la valeur de $bonjour.<br/>
+      </p>
+
+      <p class="reponse">
+        <form method="get" action="ternaire.php">
+          <p>
+            <label for="genre">Homme ou Femme ?</label><br/>
+              <input type= "radio" name="genre" value="F"> Femme<br/>
+              <input type= "radio" name="genre" value="H"> Homme<br/>
+          </p>
+
+          <p>
+              <input type="submit" value="Envoyer" />
+          </p>
+        </form>
+      </p>
 
   </body>
 

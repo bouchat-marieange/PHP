@@ -322,7 +322,7 @@ Dans le switch, on indique qu début sur quelle variable on travaille. On dit à
 **Avantages : **On na plus besoin de mettre le double égal.
 **Défaut : **Ca ne marche pas avec les autres symboles (< > <= >= !=). Le switch ne peut tester que l'égalité.
 
-####Version if/else
+#### Version if/else
 
 ````php
 <?php
@@ -337,7 +337,7 @@ if ($i == 0) {
 ````
 
 
-####Version switch
+#### Version switch
 
 ````php
 <?php
@@ -474,3 +474,80 @@ switch($beer)
 }
 ?>
 ````
+
+## Structure "ternaire"
+
+La structure ternaire est une manière rapide de déterminer la valeur d'une variable en fonction d'une condition.
+
+
+**Exemple d'écriture avec une structure ternaire**
+
+````php
+$age = 24;
+$majeur = ($age >= 18) ? true : false;
+
+````
+
+
+**Ce qui revient à écrire de manière traditionnelle**
+
+````php
+<?php
+$age = 24;
+if ($age >= 18)
+{
+
+	$majeur = true;
+
+} else {
+
+	$majeur = false;
+}
+
+````
+
+### Autre manière d'expliquer l'opérateur ternaire pour pour mieux comprendre
+
+**Exemple d'utilisation pour l'opérateur ternaire**
+
+<?php
+ $action = (empty($_POST['action'])) ? 'défaut' : $_POST['action'];
+?>
+````
+
+**La ligne ci-dessus est identique à la condition suivante :**
+
+<?php
+ if (empty($_POST['action'])) {
+     $action = 'défaut';
+ } else {
+     $action = $_POST['action'];
+ }
+?>
+
+````
+
+L'expression (expr1) ? (expr2) : (expr3) est évaluée à expr2 si expr1 est évalué à TRUE ,
+et expr3 si expr1 est évalué à FALSE .
+
+**Note**
+
+Notez que l'opérateur ternaire est une instruction,
+et il n'est pas évalué en tant que variable, mais en tant que résultat de l'instruction.
+Il est important de savoir si vous voulez retourner une variable par référence.
+L'instruction return $var == 42 ? $a : $b; dans une fonction retournée par référencene
+fonctionnera donc pas et une alerte est émise dans les versions supérieures de PHP.
+
+
+**Attention :** Il est recommandé de ne pas "empiler" les expressions ternaires.
+Le comportement de PHP lors de l'utilisation de plus d'un opérateur ternaire
+dans une seule instruction n'est pas évident
+
+
+## Bonne pratique : Le PHP avant HTML
+
+On peut mélanger du html et du php dans un fichier .php. 
+
+Cela étant, il vaut mieux mettre le plus possible de code PHP AVANT de commencer à faire du html, càd, de retourner la réponse du serveur au navigateur.
+
+
