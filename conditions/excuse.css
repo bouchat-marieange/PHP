@@ -1,0 +1,62 @@
+*
+{
+  font-family: Arial, sans-serif;
+}
+
+p.description
+{
+  font-weight: 2em;
+  line-height: 1.5em;
+
+}
+
+label
+{
+  font-weight: bold;
+}
+
+input
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p > :first-child
+{
+  /*background-color: aqua;*/
+  margin-bottom: 10px;
+}
+
+.radio
+{
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.instruction
+{
+  font-weight: bold;
+  /*background-color: red;*/
+  padding: 25px;
+  margin-bottom: 0px;
+}
+
+.texte_genere
+{
+  width: 90%;
+  margin: auto;
+  margin-top: 0px;
+  padding: 15px;
+  height: 300px;
+  border: 1px solid #000;
+}
+
+.date
+{
+  text-align: right;
+}
+
+.signature
+{
+  text-align: right;
+}
