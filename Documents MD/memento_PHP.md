@@ -956,4 +956,10 @@ echo '</pre>';
 
 #### Manipuler des arrays
 
+**Compter**
+
+count() : permet de compter tous les éléments d'un tableau ou quelque chose d'un objet.
+
+
+
 
