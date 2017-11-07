@@ -18,6 +18,8 @@ p
 .enonce
 {
   font-style: italic;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .reponse
@@ -29,4 +31,14 @@ p
 label
 {
   padding-top: 50px;
+}
+
+li
+{
+  margin: 0;
+}
+
+ul
+{
+  margin: 0;
 }

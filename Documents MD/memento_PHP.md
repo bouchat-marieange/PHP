@@ -961,5 +961,208 @@ echo '</pre>';
 count() : permet de compter tous les éléments d'un tableau ou quelque chose d'un objet.
 
 
+**Ajouter**
+
+array_push() : permet d'ajouter des celement a un tableau
+
+````php
+<?php
+$stack = array("", "");
+array_push($stack, "apple", "raspberry");
+print_r($stack);
+?>
+````
+
+va afficher
+
+````php
+<?php
+Array
+(
+	[0] => orange
+	[1] => banana
+	[2] => apple
+	[3] => rasberry
+)
+?>
+````
+
+**Remplacer**
+
+Pour remplacer une valeur liée à une clef dans un tableau, il faut utiliser le code suivant: 
+On se contente de ciblé la bonne clef et de lui attribué une nouvelle valeur.
+
+````php
+<?php
+$array['key'] = 'Nouvelle valeur'; 
+?>
+````
+
+**Créer un tableau à partir de deux tableaux (ou plus)**
+
+**array_combine**  : créer un tableau à partir de deux autres tableaux. Crée un tableau dont les clés sont les valeurs de keys, et les valeurs sont les valeurs de values. Retourne un tableau combiné ou False si le nombre d'éléments de chaque tableau n'est pas identique.
+
+````php
+<?php
+array array_combine ( array $keys , array $values )
+?>
+````
+
+keys : Tableau de clés à utiliser. Les valeurs illégales pour les clés seront converties en chaîne de caractères.
+
+values : Tableau de valeurs à utiliser
+
+````php
+<?php
+$a = array('green', 'red', 'yellow');
+$b = array('avocado', 'apple', 'banana');
+$c = array_combine($a, $b);
+
+print_r($c);
+?>
+````
+
+Affichera
+
+````php
+<?php
+Array
+(
+    [green]  => avocado
+    [red]    => apple
+    [yellow] => banana
+)
+?>
+````
+
+
+
+**array_intersect** : Calcule l'intersection de tableaux. Retourne un tableau contenant toutes les valeurs de array1 qui sont présentes dans tous les autres arguments array 2, etc... . Les clefs sont préservées. Retourne un tableau contenant toutes les valeurs du tableau array1 dont les valeurs existent dans tous les arguments.
+
+array1 : Le tableau contenant les valeurs maîtres à vérifier.
+
+array2 : Un tableau contenant les valeurs à comparer.
+
+... : Une liste variable de tableaux à comparer.
+
+
+````php
+<?php
+array array_intersect ( array $array1 , array $array2 [, array $... ] )
+?>
+````
+
+````php
+<?php
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_intersect($array1, $array2);
+print_r($result);
+?>
+````
+
+Affichera:
+
+````php
+Array
+(
+    [a] => green
+    [0] => red
+)
+````
+
+Attention : Deux éléments sont considérés comme égaux si et seulement si (string) $elem1 === (string) $elem2. En clair : lorsque la représentation en chaîne de caractères est identique
+
+
+
+**array_merge** : Fusionne plusieurs tableaux en un seul. array_merge() rassemble les éléments d'un ou de plusieurs tableaux en ajoutant les valeurs de l'un à la fin de l'autre. Le résultat est un tableau.
+
+Si les tableaux d'entrées ont des clés en commun, alors, la valeur finale pour cette clé écrasera la précédente. Cependant, si les tableaux contiennent des clés numériques, la valeur finale n'écrasera pas la valeur originale, mais sera ajoutée.
+
+Les clés numériques des tableaux d'entrées seront renumérotées en clés incrémentées partant de zéro dans le tableau résultat.
+
+
+````php
+<?php
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
+print_r($result);
+?>
+````
+
+Affichera
+
+````php
+<?php
+Array
+(
+    [color] => green
+    [0] => 2
+    [1] => 4
+    [2] => a
+    [3] => b
+    [shape] => trapezoid
+    [4] => 4
+)
+?>
+````
+
+Autre exemple
+
+````php
+<?php
+$array1 = array();
+$array2 = array(1 => "data");
+$result = array_merge($array1, $array2);
+?>
+````
+
+Affichera
+
+````php
+<?php
+Array
+(
+    [0] => data
+)
+?>
+````
+
+Autre exemple
+
+Si vous voulez ajouter des éléments du second tableau au premier sans pour autant écraser ou ré-indexer les éléments du premier, utilisez l'opérateur d'union + :
+
+
+````php
+<?php
+$array1 = array(0 => 'zero_a', 2 => 'two_a', 3 => 'three_a');
+$array2 = array(1 => 'one_b', 3 => 'three_b', 4 => 'four_b');
+$result = $array1 + $array2;
+var_dump($result);
+?>
+````
+
+Les clés du premier tableau sont préservées. Si une clé existe dans les 2 tableaux, alors l'élément du premier sera utilisé et la clé correspondante du second sera ignorée.
+
+````php
+<?php
+array(5) {
+  [0]=>
+  string(6) "zero_a"
+  [2]=>
+  string(5) "two_a"
+  [3]=>
+  string(7) "three_a"
+  [1]=>
+  string(5) "one_b"
+  [4]=>
+  string(6) "four_b"
+}
+?>
+````
+
+
+
 
 
