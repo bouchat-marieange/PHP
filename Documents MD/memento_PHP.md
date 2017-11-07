@@ -550,4 +550,148 @@ On peut mélanger du html et du php dans un fichier .php.
 
 Cela étant, il vaut mieux mettre le plus possible de code PHP AVANT de commencer à faire du html, càd, de retourner la réponse du serveur au navigateur.
 
+## Validation d'un champ de formulaire
+
+Quand on construit un script qui doit traiter un formulaire, on doit effectuer une serie de vérifications pour éviter les erreur humaine (entrer chiffre au lieu de chaine de caractère dans un champ se formulaire, ...) ou tentative de hacking (essai par l'utilisateur d'entrer volontairement des balise de code html ou javascript dans le champ du formulaire) on remplace alors automatiquement les caractère du type < > = ! etc... par des caractères qui ne seront pas interpreter comme du code mais comme une chaine de caractère.C'est ce qu'on appelle une protection contre la faille XSS. 
+
+Ce texte entré par l'utilisateur dans un champ du formulaire 
+
+<strong>Texte en gras</strong>
+
+sera alors automatiquement nettoyée et remplacée par du (x)HTML qui n'est pas dangereux
+
+&#60;strong&#62;gras&#60;/strong&#62;
+
+Ces filtres enlèvent les caractères non autorisés comme les espaces et les caractères accentués.
+
+````php
+<?php
+
+$valeur = '<strong>Texte en gras</strong>';
+
+$valeurNettoyee = filter_var($valeur, FILTER_SANITIZE_STRING); //Supprimer les balises.
+
+echo $valeurNettoyee;
+?>
+````
+
+
+Cette fois, nous avons utilisé filter_var(), mais sachez que nous pouvons toujours utiliser filter_input() :
+
+
+````php
+<?php
+
+<?php
+
+echo filter_input(INPUT_GET, 'texte', FILTER_SANITIZE_STRING);
+
+?>
+````
+
+Il existe une variante de FILTER_SANITIZE_STRING , c'est FILTER_SANITIZE_SPECIAL_CHARS qui affiche les balises telles quelles (c'est-à-dire qu'elle remplace les <, > et & en leur entité XML correspondante).
+
+````php
+<?php
+
+echo filter_input(INPUT_GET, 'texte', FILTER_SANITIZE_SPECIAL_CHARS);
+
+?>
+````
+
+Si on regarde le code source (x)HTML, nous voyons ceci :
+
+    &#60;strong&#62;gras&#60;/strong&#62;
+
+
+
+On peut également devoir vérifier qu'une variable obligatoire à bien été remplie, ce que l'on pourrait exprimer ainsi : "Si le nombre de caractère contenus dans l'email est inférieur à 1", alors on affiche un message demandant à l'utilisateur d'encoder son nom.
+
+
+````php
+<?php
+$fullname = $_GET['fullname'];
+
+if ( strlen($fullname) == 0 ){
+  echo "Vous avez oublié d'indiquer votre nom.";
+}
+
+?>
+````
+
+Voici différentes manière de tester des variables en PHP
+
+**strlen() :** retourne la taille de la chaîne string, elle prend en paramètre la châine de caractère à mesure. La taille de la chaîne string est 0 si le paramètre string est vide
+
+**Exemple**
+
+````php
+<?php
+$str = 'abcdef';
+echo strlen($str); // 6
+
+$str = ' ab cd ';
+echo strlen($str); // 7
+?>
+````
+
+**empty():** détermine si une variable est vide. Une variable est considérée comme vide si elle n'existe pasn ou si sa valeur équivaut à FALSE.La fonction empty() ne génère pas d'alerte si la varialbe n'existe pas. Retourne FALSE si var existe et est non-vide. 
+
+Aucune alerte n'est générée si la variable n'existe pas. Cela signifie que empty() est strictement équivalent à !isset($var) || $var == false.
+
+Attention est considéré comme étant vide: 
+
+* "" (une chaîne vide)
+* 0 (0 en tant qu'entier)
+* 0.0 (0 en tant que nombre à virgule flottante)
+* "0" (0 en tant que chaîne de caractères)
+* NULL
+* FALSE
+* array() (un tableau vide)
+* $var; (une variable déclarée, mais sans valeur)
+
+
+**Exemple : comparaison simple entre empty() et isset()**
+
+````php
+<?php
+$var = 0;
+                   
+// Evalué à vrai car $var est vide
+if (empty($var)) {
+  echo '$var vaut soit 0, vide, ou pas définie du tout';
+}
+                   
+// Evalué à vrai car $var est défini
+if (isset($var)) {
+  echo '$var est définie même si elle est vide';
+}
+?>
+````
+
+**filter_var() : ** filtre une variable avec un filtre spécifique. Prend en paramètre variable, filter et options. Retourne les données filtrées, ou FALSE si le filtre échoue.
+
+Paramètres
+
+variable: Valeur à filtrer. Notez que les valeurs scalaires sont converties en chaîne de caractères en interne avant qu'elles ne soient filtrées.
+
+filter: L'ID du filtre à appliquer. Il existe différents type de filtres (filtres de validation, filtres de nettoyage, autres filtres et drapeaux des filtres). Cfr : [http://php.net/manual/fr/filter.filters.php]
+
+options: Tableau associatif d'options ou des drapeaux.
+
+**Exemples**
+
+````php
+<?php
+var_dump(filter_var('bob@example.com', FILTER_VALIDATE_EMAIL));
+var_dump(filter_var('http://example.com', FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED));
+?>
+````
+
+L'exemple ci-dessus va afficher: 
+
+    string(15) "bob@example.com"
+    bool(false)
+
+
 

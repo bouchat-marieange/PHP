@@ -83,16 +83,16 @@
       switch ($motif)
       {
         case maladie:
-            echo ("il eu un intoxication alimentaire, le contraint à rester en permanence dans un périmètre de 5 mètres maximum des toilettes !");
+            echo ("il a un intoxication alimentaire, qui le contraint à rester en permanence dans un périmètre de 5 mètres maximum des toilettes !");
             break;
         case deces:
             echo ("son poisson rouge est mort ! Etand donné l'immense attachement qu'il portait à cet animal, je n'ai pu me résoudre à l'envoyer à l'école vu l'étendue de son chagrin!");
             break;
         case activite:
-            echo ("il avait aqua-poney ! Oui ça existe !!! Cette activité est particulièrement importante pour la carrière de jockey auquel il se destine.");
+            echo ("il a aqua-poney ! Oui ça existe !!! Cette activité est particulièrement importante pour la carrière de jockey auquel il se destine.");
             break;
         case super_heros:
-            echo ("il a dû mettre ces super-pouvoirs au service de la nation en sauvant un groupe d'étudiants dont le bus scolaire avait basculer dans un ravin ! Si vous ne me croyez pas, regardez le JT ce soir!");
+            echo ("il doit mettre ces super-pouvoirs au service de la nation en sauvant un groupe d'étudiants dont le bus scolaire a basculer dans un ravin ! Si vous ne me croyez pas, regardez le JT ce soir!");
             break;
       };
 
