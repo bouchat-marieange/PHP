@@ -695,3 +695,265 @@ L'exemple ci-dessus va afficher:
 
 
 
+## Les Tableaux
+
+En PHP on peut utiliser différents types de variables:
+
+1. Les chaines de caractères (string, ex: "Hello")
+2. les nombres entiers (int, ex: 11 )
+3. les nombres décimaux (float, ex: 3.141518)
+4. les booléens (true ou false)
+5. rien (null)
+6. les tableaux (array)
+
+Les arrays sont un des types de variables que l'on peut utiliser en PHP. Ils sont particuliers car il ne contiennent pas comme une variable classique un nom et une valeur mais bien peuvent contenir plusieurs valeurs.
+
+Les tableaux sont très tulise pur représenter des groupes:
+
+* tout les pays du monde
+* les membres d'une famille
+* les composants d'un système
+* les ingrédients d'une recette
+* etc...
+
+On peut comparer les arrays à des armoires.
+
+Si on déclare ceci:
+
+````php
+$pronoms_personnels = array( 'je' , 'tu' , 'il' , 'nous' , 'vous' , 'ils' );
+````
+
+PHP met en mémoire ceci:
+
+````php
+Array
+(
+    [0] => je
+    [1] => tu
+    [2] => il
+    [3] => nous
+    [4] => vous
+    [5] => ils
+)
+````
+
+Les chiffres (0 à 5) ont été automatiquement ajoutés par PHP. Ce sont des clefs (key) qui nous permettent ensuite d'aller chercher la valeur correspondante. Attention, la première clef vaut 0 et pas 1.
+
+````php
+echo $pronoms_personnels[2];
+// Affiche "il"
+´´´´
+
+### Comment créer un tableau ?
+
+On peut déclarer un tableau avec la fonction array()
+
+````php
+$team = array(); 
+````
+
+Ou de manière plus brève, on peut également déclarer un tableau comme ceci
+
+````php
+$team = []; 
+````
+
+On peut mettre des éléments à l'intérieur dès sa création en séparant les éléments par des virgules
+
+````php
+$team = [ 'Vincent Company', 'Eden Hazard', 'Manneken Pis' ]; 
+````
+
+On peut aussi créer manuellement un tableau étage par étage:
+
+````php
+$team[0] = 'Vincent Company';
+$team[1] = 'Eden Hazard';
+$team[2] = 'Manneken Pis';
+````
+
+## Afficher le contenu d'une variable
+
+print_r : permet d'afficher le contenu lisible d'une variable. 
+
+return :
+Si vous voulez obtenir le résultat de print_r() dans une chaîne, utilisez le paramètre return. Lorsque ce paramètre vaut TRUE, print_r() retournera l'information plutôt que de l'afficher.
+
+Si une chaîne de caractères, un entier ou un nombre décimal est fournie, sa valeur sera affichée. Si un tableau est fourni, les valeurs seront affichées dans un format permettant de voir les clés et les éléments. Un format similaire sera également utilisé pour les objets.
+
+Lorsque le paramètre return vaut TRUE, cette fonction retournera une chaîne de caractères. Autrement, la valeur de retour sera TRUE.
+
+````php
+<?php
+<pre>
+$a = array ('a' => 'apple', 'b' => 'banana', 'c' => array ('x', 'y', 'z'));
+print_r ($a);
+</pre>
+?>
+````
+
+L'exemple ci-dessus va afficher
+
+````php
+<pre>
+Array
+(
+    [a] => apple
+    [b] => banana
+    [c] => Array
+        (
+            [0] => x
+            [1] => y
+            [2] => z
+        )
+)
+</pre>
+````
+
+Exemple avec le paramètre return
+
+````php
+<?php
+$b = array ('m' => 'monkey', 'foo' => 'bar', 'x' => array ('x', 'y', 'z'));
+$results = print_r($b, true); // $results contient l'affichage de print_r
+?>
+````
+
+print_r()
+La fonction print_r() affiche le contenu d'une variable en général. Lorsqu'il s'agit d'une bête variable, elle affiche son contenu, tout bêtement, mais quand il s'agit d'un tableau, elle affiche sous une forme plus ou moins lisible le contenu de chaque poste du tableau avec ses indices ou ses clés (les étiquettes des casiers, pour les tableaux associatifs).
+Le résultat s'affiche tout seul à l'écran et ressemble à ça:
+
+````php
+Array ( [0] => Lou [1] => Chris [2] => Marie )
+````
+
+Pour obtenir un resultat plus lisible on peut utiliser l'astuce qui consiste à inclure le code PHP dans une apge HTMK en encadrant l'instruction print_r($array) par des balises <pre> et </pre>
+
+On obtient alors un directement un affichage beaucoup plus lisible (qui est identique à celui que l'on peut voir lorsque l'on affiche le code source de la page affichant le code précédent)
+
+````php
+      <?php
+        $famille = ['Lou','Chris','Marie'];
+        echo '<pre>';
+          print_r($famille);
+        echo '</pre>';
+      ?>
+````
+
+Donnera comme affichage
+
+````php
+Array
+(
+    [0] => Lou
+    [1] => Chris
+    [2] => Marie
+)
+````
+
+
+### Opérations courantes
+
+
+#### Afficher valeur dans array associatif
+
+
+````php
+echo $person['firstname'];
+echo $person['papa']['firstname']; 
+// Retourne la valeur de la clef 'firstname' du sous-tableau 'papa' du tableau $person.
+````
+
+#### Afficher valeur dans array numérique
+
+````php
+echo $pays[2]; // Retourne la 3ème clef du tableau $pays
+echo $person['papa']['hobbies'][1]; // retourne le 2ème hobby du papa de la $person.
+````
+
+#### Ajouter un élément
+
+Deux manières de faire:
+
+````php
+array_push($person['hobbies'], 'Football');
+````
+
+ou bien
+
+````php
+// Si une clef numérique te suffit;
+$person['hobbies'][] = 'Football';
+
+// Si tu veux que la clef soit associative:
+$person['papa']['firstname'] = 'Georgio';
+´´´´
+
+#### Remplacer la valeur d'un clef
+
+Si on désire changer la valeur d'une clef, il suffit de l'écraser comme ceci (on change le prénom)
+
+````php
+$person['papa']['firstname'] = 'Georgio';
+echo $person['papa']['firstname'];
+$person['papa']['firstname'] = 'Sebastano';
+echo '<br>';
+echo $person['papa']['firstname']; // retourne "Sebastano"
+````
+
+### Tableaux associatifs
+
+Les tableaux que nous avons utiliser jusqu'à présent utisent uen clef numérique (un chiffre)
+
+Les tableaux associatifs fonctionnent sur le même principe, mais au lieu d'utiliser des chiffres comme clef, on utilise des "étiquettes" , des noms différents correspondant chacun à une valeur.
+
+Par exemple pour enregistre les coordonnées de quelqu'un (nom, prénom, adresse, ville, etc,...). Si l'array est numéroté, comment savoir que le 0 est la clef qui correspond au nom, le 1 au prénom, ...
+C'est dans ce type de situation que les tableaux sont utiles.
+
+
+#### Construire un tableau associatif
+
+On utilise la fonction array ou sa version raccourcie [] mais on va mettre l'étiquette (la clef) devant chaque information.
+
+````php
+$utilisateur = array (
+    'prenom' => 'Juan',
+    'nom' => 'Pablo',
+    'adresse' => '3 Rue du Paradis',
+    'ville' => 'Bruxelles'
+    );
+````
+
+Note: Il n'y a qu'une seule instruction (un seul point virgule à la fin). On aurait pu tout mettre sur une seule ligne mais le retour à la ligne rend l'ensemble plus facile à lire.
+
+Note: On écrit une flèche (=>) pour dire "associé". "Ville" associé à "Bruxelles", cette notation rend l'affichage de contenu plus intuitif.
+
+
+#### Tableaux multi-dimensionnels
+
+On peut stocker des valeurs de type "texte", "int", "boolean" dans un tableau. Mais on peux aussi stocker des valeurs sous forme de tableau. Ton tableau devient alors une tableau multi-dimensionnnel (multi-dimensional array)
+
+Voici un exemple si tu dois également stocker tes hobbys dans le tableau $moi.
+
+````php
+$moi = array(
+	'naissance'	=> 1973 , 
+	'prenom' 	=> 'Alexandre' ,
+	'nom' 	  	=> 'Plennevaux' ,
+	'hobbies' 	=> array(
+				'lecture' => 'Policier',
+				'musique' => 'Batterie',
+				'art' => 'Graph',
+				),
+);
+
+echo '<pre>';
+print_r($moi);
+echo '</pre>';
+````
+
+
+#### Manipuler des arrays
+
+
