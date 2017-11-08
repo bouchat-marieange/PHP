@@ -1210,6 +1210,107 @@ array(5) {
 ?>
 ````
 
+## Les boucles (loops)
+
+Les boucles servent à effectuer des tâches répétitives avec un minimum de code.
+
+````php
+<?php
+foreach( $assiettes as $assiette){
+	trempe($assiette);
+	frotte($assiette);
+	mets_a_secher($assiette);
+}
+?>
+````
+
+Ce foreach est une structure logique appelée boucle.Il s'agit en fait d'une boucle spécialement adaptée pour les tableaux.Foreach va passer en revue chaque ligne du tableau, et lors de chaque passage, elle va mettre la valeur de cette ligne dans une variable temporaire (par exemple $element). 
+
+Une boucle permet de répéter une (ou plusieurs) opération(s) autant de fois que nécessaire.
+
+L'instruction se lit: 
+
+Pour chaque élément de l'array $assiettes, appelle-le $assiette et opère sur lui ces opérations: trempe(), frotte(), puis mets_a_secher().
+
+**Exemple pratique**
+
+Si on a un tableau (array) appelé $name contenant une liste de noms et que l'on doivent vérifier que la première lettre de ces noms sont bien en majuscules, on peut utiliser la fonction PHP ucfirst($nom); avec une boucle. De cette manière la fonction sera appliqué à chaque élément du tableau.
+
+````php
+<?php
+foreach ($names as $n){
+	echo ucfirst($n);
+}
+?>
+````
+
+L'instruction se lit:
+
+Pour chaque élément du tableau$name, met la première lettre en majuscule puis affiche-là.
+
+### Variation avec l'index
+
+Parfois on a besoin de savoir quelle rangée exactement est en train d'être manipulée. Voici la syntaxe correcte pour s'en sortir:
+
+````php
+<?php
+foreach ($names as $index => $n){
+	echo "Prénom numéro $index : ";
+	echo ucfirst($n);
+}
+?>
+````
+
+Cette syntaxe utilise => comme dans les tableaux associatifs. C'est logique puisque qu'une boucle permet notamment de traverser un tableau de part en part. Donc quand tu penses tableau, pense boucle car les deux vont très souvent ensemble.
+
+### Boucler sur une chaîne de caractères
+
+**Construction While**
+
+On peut générer avec une boucle while une chaine de caractère qui se répète un nombre défini de fois. Voici comment faire:
+
+````php
+<?php
+$nombre_de_lignes = 1;
+
+while ($nombre_de_lignes <= 100)
+{
+    echo $nombre_de_lignes . ': Je ne dois pas regarder les mouches voler quand j'apprends le PHP.<br />';
+    $nombre_de_lignes++; // équivaut à écrire $nombre_de_lignes = $nombre_de_lignes +1;
+}
+?>
+````
+
+L'instruction se lit: 
+
+La boucle pose la condition: "TANT QUE" $nombre_de_ligne est inférieur ou égal à 100, effectue ces opérations.
+
+Dans cette boucle, il y a deux instructions:
+
+* le echo : qui permet d'afficher du texte en PHP. On y ajouter la balise html <br/> à la fin pour retourner à la ligne à chaque fois.
+
+* L'instruction $nombre_de_lignes++. Cela signifie que l'on ajoute 1 à la variable ($nombre_de_lignes + 1). C'est l'incrémentation (on ajoute 1 à la variable). Chaque fois que l'on fait un tour de boucle, la valeur de la variable augmente: 1,2,3,4, ..., 99, 100. Dès que la variable atteint 101, on arrête la boucle. Et voilà, on a écrit 100 lignes en un clein d'oeil.
+
+**Construction for**
+
+<?php
+for ($nombre_de_lignes = 1; $nombre_de_lignes <= 100; $nombre_de_lignes++)
+{
+    echo 'Ceci est la ligne n°' . $nombre_de_lignes . '<br />';
+}
+?>
+````
+
+Une boucle for prends 3 paramètres séparés par des points-virgules
+
+* premier paramètre: c'est **l'initialisation**. C'est la valeur que l'on donne au départ à la variable (ici, elle vaut 1)
+* second paramètre : c'est la **condition** . Comme pour le while, tant que la condition est remplie, la boucle est réexécutée. Dès que la condition n'est plus remplie, la boucle s'arrête et on en sort.
+* Troisième paramètre: c'est l'**incrémentation** , qui permet d'ajouter 1 (ou plus) à la variable à chaque tour de boucle.
+
+
+### Conclusion
+
+Les boucles sont des structures logiques permettant de répéter une ou plusieurs opérations autant de fois que nécessaire. Foreach, while et for sont 3 manières de faire des boucles. 
 
 
 

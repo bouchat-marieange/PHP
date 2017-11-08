@@ -244,7 +244,7 @@
           print_r($moi);
         echo '</pre>';
 
-        // array_push($moi['hobbies']['animaux'],'taxidermie'); //Ne fonctionne pas ! Pourquoi?
+        array_push($moi['hobbies']['animaux'],'taxidermie'); //Ne fonctionne pas ! Pourquoi?
         array_push($moi['hobbies'],'taxidermie');
         echo '<pre>';
           print_r($moi);
