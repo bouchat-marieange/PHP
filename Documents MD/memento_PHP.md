@@ -1293,6 +1293,7 @@ Dans cette boucle, il y a deux instructions:
 
 **Construction for**
 
+````php
 <?php
 for ($nombre_de_lignes = 1; $nombre_de_lignes <= 100; $nombre_de_lignes++)
 {
@@ -1313,5 +1314,164 @@ Une boucle for prends 3 paramètres séparés par des points-virgules
 Les boucles sont des structures logiques permettant de répéter une ou plusieurs opérations autant de fois que nécessaire. Foreach, while et for sont 3 manières de faire des boucles. 
 
 
+## Les Fonctions
 
+En programmation il faut éviter de faire du DRY : "Don't Repeat Yourself".
+Ce qui signifie qu'il faut éviter de répéter inutilement un code lorsqu'il peut être écrit de manière plus concise.
+
+Par exemple
+
+````php
+$name = "Maurice";
+echo "<p>Bonjour $name!</p>";
+echo '<hr>';
+$name = "Alice";
+echo "<p>Bonjour $name!</p>";
+echo '<hr>';
+$name = "Jésus";
+echo "<p>Bonjour $name!</p>";
+echo '<hr>';
+$name = "Judas";
+echo "<p>Bonjour $name!</p>";
+echo '<hr>';
+````
+
+Qui affichera
+
+Bonjour Maurice!
+_______________________________
+Bonjour Alice!
+_______________________________
+Bonjour Jésus!
+_______________________________
+Bonjour Judas!
+
+Ce code fonctionne mais on repète 4 fois le même code. Lorsque l'on devra modifier ce programme, il faudra le modifier à 4 endroits ce qui augmente d'autant le risque d'introduire un bug.
+
+Voici un code optimisé et concis réalisant exactement la même chose
+
+````php
+// Déclaration de la fonction
+function dis_bonjour($nom){
+	echo "<p>Bonjour $nom!</p>";
+	echo '<hr>';
+}
+
+// appels de la fonction 
+dis_bonjour("Maurice")
+dis_bonjour("Alice");
+dis_bonjour("Jésus");
+dis_bonjour("Judas");
+````
+
+Ce qui affichera également:
+
+Bonjour Maurice!
+_______________________________
+Bonjour Alice!
+_______________________________
+Bonjour Jésus!
+_______________________________
+Bonjour Judas!
+_______________________________
+
+
+Le code est ainsi plus propre et plus facilement modifiable si on désire y apporter des améliorations. Il suffira alors de modifier la fonction et tous les endroits où la fonction est utilisées bénéficieront automatiquement de la mise à jour de la fonction.
+
+### Definition
+
+Une fonction est comme un robot intelligent qui s'adapte en fonction de ce que je veux faire et automatise la plupart des tâches courantes. Elles prennent souvent (mais pas obligatoirement) en paramètre un ou plusieurs input. Ceux-ci sont appellés les arguments de la fonction. La fonction les transforment puis les retourne via la fonction return. Et oui, on peut utiliser des fonctions dans les fonctions !!!
+
+On peut créer ses propres fonctions ou utiliser les nombreuses fonctions fournies par PHP
+
+[http://php.net/manual/fr/funcref.php]
+
+Nous en utilisons déja quelques unes, comme array() qui est une fonction qui sert à créer des variables de type array.
+
+````php
+$team = array('Elvis', 'Johnny');
+````
+
+Ici, les arguments 'Elvis', 'Johnny' vont être capturé dans la variable $team et devenir les éléments qui vont constitués l'array.
+
+#### D'autres exemples**
+
+**print_r($array)** : sert à afficher le contenu d'un array.
+
+**die("message")** : sert à arrêter l'exécution du script après avoir affiché le message indiqué en argument de la fonction.
+
+**echo("texte à afficher");** : sert à afficher les arguments. Cette fonction ne nécessite pas les parenthèses.
+
+**phpinfo();** affiche la configuration de PHP sur ton serveur.
+
+**date('d M Y')** pour récupérer la date courante.
+
+
+### Exemple concret : transformer un bout de texte
+
+La fonction str_shuffle()(lire : "shuffle string") permet de mélanger les caractères d'une chaîne (autrement dit: un bout de texte).
+
+````php
+$chaine = 'Cette chaîne va être mélangée !';
+$chaine = str_shuffle($chaine);
+ 
+echo $chaine;
+````
+
+Ce qui donnera ce type de résultat:
+
+ne tCeevaetcna rlih eme!geate
+
+### Syntaxe
+
+L'usage d'une fonction se fait en deux temps:
+
+1. **Créer la fonction :** 
+
+On appelle cela "définir" ou "déclarer" une fonction. Voici comment faire:
+
+````php
+function nom_de_la_fonction( $argument1, $argument2,...){
+	//	une série d'opérations manipulant les arguments
+}
+````
+
+La série d'instruction qui devra être effectuer par la fonction est placer entre {} accolades. Typiquement (mais pas forcément) une fonction va retourner le résultat.
+
+Voici une fonction qui permet de sanitizer un input:(sanitization signifie désinfection, elle modifie l'entrée pour s'assurer qu'elle est valide.
+
+````php
+function sanitize( $input ){
+	//	une série d'opérations manipulant les arguments
+	return strip_tags( trim( $input) );
+	
+}
+````
+
+strip_tags : va supprimer les balises HTML et PHP d'une chaîne
+trim: va supprimer les espaces (ou d'autres caractères) en début et fin de chaîne.
+
+L'argument (ici appelé $input) est envoyé à la fonction trim() qui retourne son résultat à la fonction strip_tags() qui retourne le résultat à la fonction return qui ... retourne le résultat hors de la fonction que j'ai baptisée sanitize() et qui me permet de fiare à la fois trip et strip_tags d'un seul coup.
+
+2. **Utiliser la fonction**
+
+On dit "appeler la fonction.
+Une fois la fonction déclarée quelque part dans ton code, tu peux l'utiliser où tu le souhaites, et autant de fois que nécessaire.
+
+Par exemple avec la fonction sanitize(), voici un exemple d'utilisation
+
+````php
+// Si le formulaire a été soumis...
+if (isset($_POST) && !empty($_POST) ){
+
+	// sanitisation des inputs
+	$name = sanitize( $_POST['name'] );
+	$email = sanitize( $_POST['email'] );
+
+	// validation...
+	...
+}
+````
+
+Dans cet exemple, on vérifie les données envoyée par un formulaire html par la méthode POST. On vérifie que le formulaire n'est pas vide (!empty) puis on vérifie (on nettoie) les input en enlevant les caractères spéciaux et les balises html et PHP qui auraient pu être introduites par l'utilisateur
 
