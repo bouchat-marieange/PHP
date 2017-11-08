@@ -130,10 +130,36 @@
     <br/>
 
     <?php
+
+	//Les pays que je veux voir apparaitre dans ma liste déroulante
+
+	      // Autriche
+	      // Belgique
+	      // Cambodge
+	      // Egypte
+	      // Fidji
+	      // Guadeloupe
+	      // Islande
+	      // Liban
+	      // Malte
+	      // Népal
+
+	//Le code html pour un champ de formulaire avec liste déroulante
+
+	    // <select>
+	    //   <option value="volvo">Volvo</option>
+	    //   <option value="saab">Saab</option>
+	    //   <option value="mercedes">Mercedes</option>
+	    //   <option value="audi">Audi</option>
+	    // </select>
+
     echo 'Choisissez le pays que vous souhaitez visiter : <br/>';
+
     $pays = ['Autriche','Belgique','Cambodge','Egypte','Fidji','Guadeloupe','Islande','Liban','Malte','Nepal',];
+
     $longueur_tableau = count($pays);
     // echo $longueur_tableau; //Vérification nombre d'éléments (pays) dans le tableau
+
     echo '<select>';
     for ($i=0; $i<= $longueur_tableau; $i++)
         echo '<option value ="'.$pays[$i].'">'.$pays[$i].'</option>';
@@ -141,24 +167,7 @@
         echo '</option>';
     echo '</select>';
 
-      // Autriche
-      // Belgique
-      // Cambodge
-      // Egypte
-      // Fidji
-      // Guadeloupe
-      // Islande
-      // Liban
-      // Malte
-      // Népal
 
-
-    // <select>
-    //   <option value="volvo">Volvo</option>
-    //   <option value="saab">Saab</option>
-    //   <option value="mercedes">Mercedes</option>
-    //   <option value="audi">Audi</option>
-    // </select>
     ?>
 
     <br/>
