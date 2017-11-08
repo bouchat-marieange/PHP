@@ -161,7 +161,7 @@
     // echo $longueur_tableau; //Vérification nombre d'éléments (pays) dans le tableau
 
     echo '<select>';
-    for ($i=0; $i<= $longueur_tableau; $i++)
+    for ($i=0; $i<= $longueur_tableau-1; $i++)
         echo '<option value ="'.$pays[$i].'">'.$pays[$i].'</option>';
         echo $pays[$i];
         echo '</option>';
@@ -174,16 +174,31 @@
     <br/>
 
     <?php
-        echo 'Choisissez le pays que vous souhaitez visiter (version ISO) : <br/>';
+        // On crée un tableau associatif, dans lequel les clefs sont le code ISO du pays et où la valeur est le nom du pays
         $pays = ['AU'=>'Autriche','BE'=>'Belgique','CA'=>'Cambodge','EG'=>'Egypte','FI'=>'Fidji','GU'=>'Guadeloupe','IS'=>'Islande','LI'=>'Liban','MA'=>'Malte','NE'=>'Nepal'];
-        $longueur_tableau = count($pays);
+
+        //On affiche ce tableau associatif afin de bien visualiser les associations
+        echo '<pre>';
+          print_r($pays);
+        echo '</pre>';
+
+        echo'<br/>';
+
+        echo 'Choisissez le pays que vous souhaitez visiter (version ISO) : <br/>';
         echo '<select>';
-        for ($i=0; $i<= $longueur_tableau; $i++)
-            echo '<option value ="'.$pays[$i].'">'.$pays[$i].'</option>';
-            echo $pays[$i];
-            echo '</option>';
+        foreach ($pays as $iso => $nom_pays)
+        {
+            echo '<option value ="'.$iso.'">'.$nom_pays.'</option>';
+        }
         echo '</select>';
 
+        echo'<br/>';
+        echo'<br/>';
+
+        echo 'A première vue pas de différence avec l\'exercice précédent, <br/>
+        mais lorsque l\'on affiche le code source de la page, on constate <br/>
+        que dans ce second exercice, la valeur de value dans la balise option <br/>
+        a été remplacée par le code ISO du pays correspondant qui s\'affiche dans la liste déroulante';
     ?>
     </p>
 
