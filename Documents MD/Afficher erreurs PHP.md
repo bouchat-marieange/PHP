@@ -1,4 +1,4 @@
-# Afficher erreur PHP dans Chrome en modifiant les paramètre php.ini
+# Afficher erreur PHP
 
 1. Aller dans le fichier php.ini situé ici : /etc/php/7.0/apache2 (Attention de bien selectionner le bon fichier php.ini car il en existe plusieurs sur votre ordi)
 2. Ouvrir le fichier php.ini

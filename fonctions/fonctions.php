@@ -101,20 +101,20 @@ ini_set('display_errors', 1);
       <?php
         // Problème: Le code est correct et s'exécute sur phpio.net mais bloque lorsque j'exécute la page ! Pourquoi?
 
-        // function somme($a, $b)
-        // {
-        //   if (is_int($a) && is_int($b))
-        //   {
-        //   return $a + $b;
-        //   }
-        //   else
-        //   {
-        //     echo "Erreur, argument non numérique";
-        //   }
-        // }
-        //
-        // $total = somme(8,3);
-        // echo $total;
+        function resultat($a, $b)
+        {
+          if (is_int($a) && is_int($b))
+          {
+          return $a + $b;
+          }
+          else
+          {
+            echo "Erreur, argument non numérique";
+          }
+        }
+
+        $total = resultat(8,3);
+        echo $total;
       ?>
     </p>
 
@@ -128,11 +128,108 @@ ini_set('display_errors', 1);
 
     <p class="reponse">
       <?php
-        $phrase = "Bonjour je suis en forme";
-        $initiales = substr($phrase, 0,1);
-        echo $initiales;
 
-        // substr() prend en paramètre la chaine de caractère et ensuite le point de départ 0 pour la première lettre, et ensuite un second chiffre pour savoir jusqu'à quel caractère afficher la chaîne
+        // Avant de créer la fonction, on va décomposer par étape les différentes opérations à faire pour afficher en majuscules les initiales de tous les mots formant une chaîne de caractère
+
+        // $phrase = "Bonjour je suis en forme"; // On stocke la chaine de caractère (la phrase de plusieurs mots) dans une variable appelée $phrase
+
+        // $phrase_majuscules = strtoupper($phrase); // On commence par mettre toutes les lettre en majuscules avec la fonction native PHP strtoupper
+        // echo $phrase_majuscules . '<br/>'; // On affiche le résultat de strtoupper pour visualiser le resultat
+
+        // $mots = explode(" ",$phrase_majuscules); //explode est une fonction native PHP qui retourne un tableau de chaînes de caractèrs créees en découpant la chaine initiale (string) en plusieurs morceaux suivant le paramètre delimiter
+        // avec la fonction explode, on place toujours comme premier paramètre le delimiter, ici l'espace entre les mots, puis en second pararmètre la phrase à découper.
+
+        //explode renvoie un tableau avec chacun des mots, pour afficher ce tableau on utilise une boucle
+        // foreach($mots as $mot)
+        // {
+        //   echo $mot . '<br/>';
+        // }
+
+        //Pour chaque mot du tableau, on ne veut afficher que la première lettre (initiale)
+        // foreach($mots as $mot)
+        // {
+        //   echo substr($mot,0,1);
+        // }
+
+        // On va maintenant réunir tous ces éléments dans une seule fonction
+
+        //Création de la fonction
+        function initiales($phrase)
+        {
+          $mots = explode(" ",$phrase);
+          foreach ($mots as $mot)
+          {
+            $initiale= substr($mot,0,1);
+            $majuscule = strtoupper($initiale);
+            echo $majuscule;
+          }
+        }
+
+        //Appel de la fonction
+        $phrase = "Bonjour je suis en forme";
+        initiales($phrase);
+      ?>
+    </p>
+
+
+    <h3>Exercice 7</h3>
+
+    <p class="enonce">
+      Invente une fonction qui remplace les lettres "a" et "e" par le caractère "æ" <br/>
+      dans chacune des chaînes suivantes: <br/>
+      "caecotrophie", "chaenichthys","microsphaera", "sphaerotheca".
+    </p>
+
+    <p class="reponse">
+      <?php
+
+      //On commence par définir toutes les étapes et fonctions nécessaires pour résoudre le problème avant de créer la fonction
+
+      // $liste_mots = "caecotrophie,chaenichthys,microsphaera,sphaerotheca";
+      // $chaine_a_remplacer = "ae";
+      // $chaine_de_remplacement = "æ";
+      // $mots_a_e = explode (",",$liste_mots);// sépare en des mots séparés les éléments d'une chaîne en fonction d'un delimiter mis en premier paramètre (ici c'est la virgule qui sépare les mots de la chaîne)
+      // foreach ($mots_a_e as $mot_a_e)
+      // {
+      //   echo $mot_a_e . '<br/>';// affiche pour vérification chaque mots de la chaine séparément
+      //   $position = strripos($mot_a_e, $chaine_a_remplacer);// renvoie la position de la chaine ae dans chaque mot (attention la numérotation de la position commence à 0 et pas à 1)
+      //   echo $position . '<br/>';// affiche pour vérification que la chaine ae a bien été trouvée au bon endroit dans chaque mots
+      //   $mots_ae = str_replace ($chaine_a_remplacer,$chaine_de_remplacement, $mot_a_e );
+      //   echo $mots_ae . '<br/>';
+      // }
+
+      // On crée la fonction
+      function ae_for_a_e ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement)
+      {
+        $mots_a_e = explode(",",$liste_mots);
+        foreach ($mots_a_e as $mot_a_e)
+        {
+          $position = strripos($mot_a_e, $chaine_a_remplacer);
+          $mots_ae = str_replace ($chaine_a_remplacer,$chaine_de_remplacement, $mot_a_e );
+          echo $mots_ae . '<br/>';
+        }
+      }
+
+      //On appelle la fonction
+      $liste_mots = "caecotrophie,chaenichthys,microsphaera,sphaerotheca";
+      $chaine_a_remplacer = "ae";
+      $chaine_de_remplacement = "æ";
+      ae_for_a_e ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement);
+
+      ?>
+    </p>
+
+
+    <h3>Exercice 8</h3>
+
+    <p class="enonce">
+      Crée la fonction inverse, qui remplace le caractère "æ" par "ae" <br/>
+      dans les chaines suivantes: cæcotrophie, chænichthys, microsphæra, sphærotheca
+    </p>
+
+    <p class="reponse">
+      <?php
+
       ?>
     </p>
 
