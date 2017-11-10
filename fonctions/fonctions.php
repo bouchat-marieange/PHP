@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="fonctions.css">
     <title>PHP - Fonctions</title>
   </head>
 
@@ -198,23 +199,26 @@ ini_set('display_errors', 1);
       //   echo $mots_ae . '<br/>';
       // }
 
-      // On crée la fonction
-      function ae_for_a_e ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement)
-      {
-        $mots_a_e = explode(",",$liste_mots);
-        foreach ($mots_a_e as $mot_a_e)
-        {
-          $position = strripos($mot_a_e, $chaine_a_remplacer);
-          $mots_ae = str_replace ($chaine_a_remplacer,$chaine_de_remplacement, $mot_a_e );
-          echo $mots_ae . '<br/>';
-        }
-      }
 
-      //On appelle la fonction
-      $liste_mots = "caecotrophie,chaenichthys,microsphaera,sphaerotheca";
-      $chaine_a_remplacer = "ae";
-      $chaine_de_remplacement = "æ";
-      ae_for_a_e ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement);
+
+
+      // On crée la fonction
+      // function ae_for_a_e ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement)
+      // {
+      //   $mots_a_e = explode(",",$liste_mots);
+      //   foreach ($mots_a_e as $mot_a_e)
+      //   {
+      //     $position = strripos($mot_a_e, $chaine_a_remplacer); // pas nécessaire
+      //     $mots_ae = str_replace ($chaine_a_remplacer,$chaine_de_remplacement, $mot_a_e );
+      //     echo $mots_ae . '<br/>';
+      //   }
+      // }
+      //
+      // //On appelle la fonction
+      // $liste_mots = "caecotrophie,chaenichthys,microsphaera,sphaerotheca";
+      // $chaine_a_remplacer = "ae";
+      // $chaine_de_remplacement = "æ";
+      // ae_for_a_e ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement);
 
       ?>
     </p>
@@ -230,8 +234,229 @@ ini_set('display_errors', 1);
     <p class="reponse">
       <?php
 
-      ?>
+        // // Création de la fonction
+        function a_e_for_ae ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement)
+        {
+          $mots_ae = explode(",",$liste_mots);
+
+          foreach ($mots_ae as $mot_ae)
+          {
+            $mot_a_e = str_replace ($chaine_a_remplacer,$chaine_de_remplacement, $mot_ae );
+            echo $mot_a_e . '<br/>';
+          }
+        }
+
+        // // Appel de la fonction
+        $liste_mots = "cæcotrophie, chænichthys, microsphæra, sphærotheca";
+        $chaine_a_remplacer = "æ";
+        $chaine_de_remplacement = "ae";
+        a_e_for_ae ($liste_mots, $chaine_a_remplacer, $chaine_de_remplacement);
+
+        ?>
     </p>
+
+
+    <h3>Exercice 9</h3>
+
+    <p class="enonce">
+      Crée une fonction te permettant de gérer des messages envers l'utilisateur <br/>
+      grâce à deux arguments: le premier argument est le message, le second permet de spécifier <br/>
+      un attribut de classe html qui sera utilisée par le CSS <br/>
+      (par exemple: "info", "error", "warning"). Grâce à cette fonction, on pourra écrire en php:<br/>
+      <br/>
+      <code>echo feedback("adresse email incorrecte", "warning");</code>
+    </p>
+
+    <p class="reponse">
+      <?php
+
+      // La fonction optimisée à utiliser
+
+      // function affiche_class ($message, $class)
+      // {
+      //   echo ('<div class ="'.$class.'">'.$message.'</div>');
+      // }
+      //
+      // affiche_class('Ceci est un message d\'info', 'info');
+      // affiche_class('Ceci est un message alerte', 'alert');
+      // affiche_class('Ceci est un message erreur', 'error');
+
+      ?>
+
+      <?php
+      // Cette solution fonctionne mais pas optimisée
+
+      // On crée la fonction feedback
+
+      // function feedback($message)
+      // {
+      //   switch ($message)
+      //     {
+      //       case 'Ceci est un message info':
+      //         $class = 'info';
+      //         echo "<div class=\"{$class}\"> {$message} </div>";
+      //         break;
+      //
+      //       case 'Ceci est un message alerte':
+      //         $class = 'alert';
+      //         echo "<div class=\"{$class}\"> {$message} </div>";
+      //         break;
+      //
+      //       case 'Ceci est un message erreur':
+      //         $class = 'error';
+      //         echo "<div class=\"{$class}\"> {$message} </div>";
+      //         break;
+      //
+      //       default:
+      //         echo "<div> {$message} </div>";
+      //         break;
+      //     }
+      // }
+      //
+      // //On déclare les variables des différents type de message
+      // $message_info = "Ceci est un message info";
+      // $message_alert= "Ceci est un message alerte";
+      // $message_error = "Ceci est un message erreur";
+      //
+      // // On appelle la fonction feedback pour afficher les message avec un class html qui est utilisée par le CSS et qui stylise le texte en fonction du type de message
+      // feedback($message_info);
+      // feedback($message_alert);
+      // feedback($message_error);
+        ?>
+    </p>
+
+
+    <h3>Exercice 10</h3>
+
+    <p class="enonce">
+      Crée une fonction te permettant de gérer des messages envers l'utilisateur <br/>
+      grâce à deux arguments: le premier argument est le message, le second permet de spécifier <br/>
+      un attribut de classe html qui sera utilisée par le CSS <br/>
+      (par exemple: "info", "error", "warning"). Grâce à cette fonction, on pourra écrire en php:<br/>
+      <br/>
+      <code>echo feedback("adresse email incorrecte", "warning");</code><br/>
+
+      Trouve par toi-même dans la documentation php comment modifier ta fonction pour que, <br/>
+      si le second argument n'est pas spécifié, sa valeur soit égale à "info".
+    </p>
+
+    <p class="reponse">
+
+      Voici ce que la documentation PHP nous apprends : http://php.net/manual/fr/functions.arguments.php<br/>
+      On peut définir en PHP des valeurs par défaut pour les arguments de type scalaire <br/>
+      (Une variable de type scalaire est un nombre ou une chaîne de caractères) :<br/><br/>
+
+      <code>
+
+          function servir_cafe ($type = "cappuccino")<br/>
+          {<br/>
+              return "Servir un $type.\n";<br/>
+          }<br/>
+          echo servir_cafe();<br/>
+          echo servir_cafe(null);<br/>
+          echo servir_cafe("espresso");<br/>
+
+      </code><br/>
+
+      <h4>Affichera ceci:</h4>
+
+      Servir un cappuccino.<br/>
+      Servir un .<br/>
+      Servir un espresso.<br/>
+
+
+      <h4>Solution à l'exercice</h4>
+
+      <?php
+
+      // La fonction optimisée à utiliser
+
+      function affiche_class ($message, $class="info") // on indique une valeur par défaut pour la class si aucune class n'est indiquée comme paramètre lorsque l'on déclare la fonction
+      {
+        echo '<div class ="' . $class . '">' . $message . '</div>';
+      }
+
+      affiche_class('Ceci est un message d\'info', 'info');
+      affiche_class('Ceci est un message alerte', 'alert');
+      affiche_class('Ceci est un message erreur', 'error');
+      affiche_class('Ceci est un message dont le paramètre class');
+
+        ?>
+    </p>
+
+    <h3>Exercice 11</h3>
+
+    <p class="enonce">
+      Crée un générateur de mots aléatoires, générant deux mots: un allant de 1 à 5 lettres, <br/>
+      l'autre allant de 7 à 15 lettres. L'écran ne montrera que ceci: <br/>
+      Un titre invitant l'utilisateur à générer un nouveau mot, <br/>
+      ensuite: les deux mots générés, <br/>
+      ensuite: un bouton permettant de rafraichir la page (et donc de recréer deux mots).
+      <br/>
+    </p>
+
+    <p class="reponse">
+
+      <?php
+
+        // Explications des fonctions natives PHP utilisées
+
+        // shuffle(array);//mélange les éléments d'un tableau
+        // implode (chaine, ), rassemble les éléments d'un tableau dans une chaîne
+        // substr(string, debut, longueur);//retourne un segment de chaine
+            echo '<h4>Générer deux nouveaux mots aléatoires</h4>';
+            // On déclare les variables
+            $chaine=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+            $toutes_lettres_melangées = shuffle($chaine);// On mélange tous les éléments du tableau
+            $dans_le_desordre = implode ($chaine); // On rassemble tout les éléments du tableau dans une chaîne de caractère
+            // echo $dans_le_desordre . '<br></br>'; // On affiche la chaine de caractère pour vérifier qu'à chaque rafraichissement de la page, l'ordre des lettres changent
+
+            //On crée la fonction mot1
+            function mot1($dans_le_desordre)
+            {
+            $min1 = 1; // Valeur minimal 1 pour être certaine d'avoir au moins une lettre
+            $max1 = rand (1,5); // Valeur maximale située entre 1 et 5 lettres
+            $mot1 = substr($dans_le_desordre, $min1, $max1); // retourne une partie de la chaine aléatoire, qui commence à la valeur $min1 et a une longueur de $max1
+            return 'mot 1 =' . $mot1 . '<br/>'; // Affiche mot1 = mot généré (de 1 à 5 lettres aléatoires)
+            }
+
+            // On crée la fonction mot2
+            function mot2($dans_le_desordre)
+            {
+              $min2 = 7; // Valeur minimal 7 pour être certaine d'avoir au moins 7 lettres
+              $max2 = rand (7,15); // Valeur maximale située entre 7 et 15 lettres
+              $mot1 = substr($dans_le_desordre, $min2, $max2); // retourne une partie de la chaine aléatoire, qui commence à la valeur $min2 et a une longueur de $max2
+              return 'mot 2 =' . $mot1 . '<br/>'; // Affiche mot1 = mot généré (de 7 à 15 lettres aléatoires)
+            }
+
+            function generateur_mot($mot1,$mot2) {
+              echo mot1($mot1).mot2($mot2);
+            }
+
+            generateur_mot($dans_le_desordre,$dans_le_desordre);
+            echo '<br/>';
+
+            //On crée un bouton pour recharger la page
+            echo '<a class="bouton_noir" href="./fonctions.php">Recharge la page</a>';
+        ?>
+    </p>
+
+
+    <h3>Exercice 12</h3>
+
+    <p class="enonce">
+      Convertis la chaîne suivante: "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!" en lettres minuscules.
+    </p>
+
+    <p class="reponse">
+
+      <?php
+        $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
+        $minuscules = strtolower($phrase_majuscule);
+        echo $minuscules;
+        ?>
+    </p>
+
 
 
   </body>
