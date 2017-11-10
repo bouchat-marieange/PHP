@@ -1,0 +1,75 @@
+*
+{
+  font-family: Arial, sans-serif;
+  color: grey;
+}
+
+h1, h2, h3, h4, h5
+{
+  color : #000;
+}
+
+p
+{
+  font-size: 1em;
+  font-weight: lighter;
+}
+
+.enonce
+{
+  font-style: italic;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.reponse
+{
+  color : blue;
+  margin-left: 25px;
+}
+
+label
+{
+  padding-top: 50px;
+}
+
+li
+{
+  margin: 0;
+}
+
+ul
+{
+  margin: 0;
+}
+
+.info
+{
+  color: green;
+  font-weight: bold;
+}
+
+.alert
+{
+  color: orange;
+  font-style: italic;
+}
+
+.error
+{
+  color: red;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.bouton_noir
+{
+  background-color: #272727;
+  text-decoration: none;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  padding: 7px 10px;
+  color: white;
+  border: solid 1px #272727;
+  border-radius: 3px;
+}
