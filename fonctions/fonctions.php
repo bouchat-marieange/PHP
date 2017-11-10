@@ -451,13 +451,110 @@ ini_set('display_errors', 1);
     <p class="reponse">
 
       <?php
+
+        //Explications des fonctions natives PHP utilisées
+
+        // strtolower($chaine) : Renvoie une chaîne en minuscules
+        // str_replace($search, $replace, $chaine) : Remplace toutes les occurrences dans une chaîne
+
+        //Décomposition des étapes
+
+        // $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
+        // $minuscules = strtolower($phrase_majuscule);
+        // echo $minuscules;
+        // echo '<br/>';
+
+        // Problème, les caractères accentués comme le Ê ne sont pas mis en minuscules et reste en majuscule
+        // $minuscules_accentue = str_replace("Ê", "ê", $minuscules);// on remplace Ê majuscule par ê minuscules
+        // echo $minuscules_accentue;
+
+        ?>
+
+        <?php
+        //Version optimisée
+
+        //Déclaration variables
+
         $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
-        $minuscules = strtolower($phrase_majuscule);
-        echo $minuscules;
+
+        //Déclaration de la fonction
+        function minuscule ($phrase_majuscule)
+        {
+          $minuscules = strtolower($phrase_majuscule);
+          $minuscules_accentue = str_replace("Ê", "ê", $minuscules);
+          echo $minuscules_accentue;
+        }
+
+        //Appel de la fonction
+        minuscule($phrase_majuscule);
+
         ?>
     </p>
 
 
+    <h3>Exercice 13</h3>
+
+    <p class="enonce">
+      Dans ton nouveau boulot, tu récupères du code du développeur précédent:
+      <code>
+        // Calcul du volume d'un cône de rayon 5 et de hauteur 2
+            $volume = 5 * 5 * 3.14 * 2 * (1/3);
+            echo 'Le volume du cône de rayon 5 et de hauteur 2 est : ' . $volume . ' cm<sup>3</sup><br />';
+        // Calcul du volume d'un cône de rayon 3 et de hauteur 4
+            $volume = 3 * 3 * 3.14 * 4 * (1/3);
+            echo 'Le volume du cône de rayon 3 et de hauteur 4 est : ' . $volume . ' cm<sup>3</sup><br />';
+      </code>
+      WOA! Une répétition! Ton subsconscient aussitôt crie DRY! DRY! DRY!<br/>
+      Afin qu'il te laisse tranquille, crée une fonction volume_dun_cone, <br/>
+      qui va calculer le volume du cône en fonction du rayon et de la hauteur. <br/>
+      Cette fonction ne va rien afficher, on veut juste qu'elle nous renvoie le volume <br/>
+      qu'on cherche. Voici un schéma, pour bien t'embrouiller <br/>
+      (Ben oui, en réalité, les informations utiles à cette mission sont dans le code ci-dessus...)
+      ![shéma](https://camo.githubusercontent.com/4138934898cd1684945a346c57c4048ffaebc8e9/68747470733a2f2f757365722e6f632d7374617469632e636f6d2f66696c65732f353030315f363030302f353735382e676966)
+    </p>
+
+    <p class="reponse">
+
+      <?php
+
+        //Explications des fonctions natives PHP utilisées
+
+        // strtolower($chaine) : Renvoie une chaîne en minuscules
+        // str_replace($search, $replace, $chaine) : Remplace toutes les occurrences dans une chaîne
+
+        //Décomposition des étapes
+
+        // $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
+        // $minuscules = strtolower($phrase_majuscule);
+        // echo $minuscules;
+        // echo '<br/>';
+
+        // Problème, les caractères accentués comme le Ê ne sont pas mis en minuscules et reste en majuscule
+        // $minuscules_accentue = str_replace("Ê", "ê", $minuscules);// on remplace Ê majuscule par ê minuscules
+        // echo $minuscules_accentue;
+
+        ?>
+
+        <?php
+        //Version optimisée
+
+        //Déclaration variables
+
+        $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
+
+        //Déclaration de la fonction
+        function minuscule ($phrase_majuscule)
+        {
+          $minuscules = strtolower($phrase_majuscule);
+          $minuscules_accentue = str_replace("Ê", "ê", $minuscules);
+          echo $minuscules_accentue;
+        }
+
+        //Appel de la fonction
+        minuscule($phrase_majuscule);
+
+        ?>
+    </p>
 
   </body>
 
