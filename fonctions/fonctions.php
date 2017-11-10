@@ -45,6 +45,8 @@ ini_set('display_errors', 1);
       ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 2</h3>
 
@@ -59,6 +61,9 @@ ini_set('display_errors', 1);
       ?>
     </p>
 
+    <br/>
+    <br/>
+
     <h3>Exercice 3</h3>
 
     <p class="enonce">
@@ -71,6 +76,9 @@ ini_set('display_errors', 1);
         echo $maintenant;
       ?>
     </p>
+
+    <br/>
+    <br/>
 
     <h3>Exercice 4</h3>
 
@@ -89,6 +97,9 @@ ini_set('display_errors', 1);
         echo $total;
       ?>
     </p>
+
+    <br/>
+    <br/>
 
     <h3>Exercice 5</h3>
 
@@ -118,6 +129,9 @@ ini_set('display_errors', 1);
         echo $total;
       ?>
     </p>
+
+    <br/>
+    <br/>
 
     <h3>Exercice 6</h3>
 
@@ -172,6 +186,8 @@ ini_set('display_errors', 1);
       ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 7</h3>
 
@@ -223,6 +239,8 @@ ini_set('display_errors', 1);
       ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 8</h3>
 
@@ -255,6 +273,8 @@ ini_set('display_errors', 1);
         ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 9</h3>
 
@@ -325,6 +345,8 @@ ini_set('display_errors', 1);
         ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 10</h3>
 
@@ -384,6 +406,9 @@ ini_set('display_errors', 1);
         ?>
     </p>
 
+    <br/>
+    <br/>
+
     <h3>Exercice 11</h3>
 
     <p class="enonce">
@@ -441,6 +466,8 @@ ini_set('display_errors', 1);
         ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 12</h3>
 
@@ -491,11 +518,15 @@ ini_set('display_errors', 1);
         ?>
     </p>
 
+    <br/>
+    <br/>
 
     <h3>Exercice 13</h3>
 
     <p class="enonce">
-      Dans ton nouveau boulot, tu récupères du code du développeur précédent:
+      Dans ton nouveau boulot, tu récupères du code du développeur précédent<br/>
+
+      <br/>
       <code>
         // Calcul du volume d'un cône de rayon 5 et de hauteur 2
             $volume = 5 * 5 * 3.14 * 2 * (1/3);
@@ -504,6 +535,8 @@ ini_set('display_errors', 1);
             $volume = 3 * 3 * 3.14 * 4 * (1/3);
             echo 'Le volume du cône de rayon 3 et de hauteur 4 est : ' . $volume . ' cm<sup>3</sup><br />';
       </code>
+      <br/>
+
       WOA! Une répétition! Ton subsconscient aussitôt crie DRY! DRY! DRY!<br/>
       Afin qu'il te laisse tranquille, crée une fonction volume_dun_cone, <br/>
       qui va calculer le volume du cône en fonction du rayon et de la hauteur. <br/>
@@ -515,45 +548,127 @@ ini_set('display_errors', 1);
 
     <p class="reponse">
 
-      <?php
+        <!-- La formule mathématique pour calculerle volume d'un cône est <br/>
+        π × R2 × h ÷ 3
+        π  à une valeur de 3.14
+        R représente le rayon donc R² revient à faire R * R
+        h représente la hauteur
+        Le tout divisier par 3 ce qui équivaut à faire * 1/3
 
-        //Explications des fonctions natives PHP utilisées
-
-        // strtolower($chaine) : Renvoie une chaîne en minuscules
-        // str_replace($search, $replace, $chaine) : Remplace toutes les occurrences dans une chaîne
-
-        //Décomposition des étapes
-
-        // $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
-        // $minuscules = strtolower($phrase_majuscule);
-        // echo $minuscules;
-        // echo '<br/>';
-
-        // Problème, les caractères accentués comme le Ê ne sont pas mis en minuscules et reste en majuscule
-        // $minuscules_accentue = str_replace("Ê", "ê", $minuscules);// on remplace Ê majuscule par ê minuscules
-        // echo $minuscules_accentue;
-
-        ?>
+        La formule revient donc à
+        $volume = R * R * 3.14 * h * (1/3); -->
 
         <?php
-        //Version optimisée
 
-        //Déclaration variables
+          //Création de la fonction de calcul du volume d'un commence
 
-        $phrase_majuscule = "ARRÊTE DE CRIER JE N'ENTENDS PLUS RIEN!!!";
+          function volume_dun_cone ($rayon, $hauteur)
+          {
+            $volume = $rayon * $rayon * 3.14 * $hauteur * (1/3);
+            echo 'Le volume du cône de rayon '. $rayon .'cm et de hauteur ' . $hauteur . 'cm est : ' .$volume . ' cm³<br/>';
+          }
 
-        //Déclaration de la fonction
-        function minuscule ($phrase_majuscule)
+          // Appel de la fonction de calcul du volume d'un cone réutilisable avec des paramètre de hauteur et rayon différents selon les 2 cas
+
+          volume_dun_cone(5,2);
+          volume_dun_cone(3,4);
+        ?>
+    </p>
+
+    <br/>
+    <br/>
+
+    <h3>Exercice #godmode #walloniequandtunoustiens - 1</h3>
+
+    <p class="enonce">
+      Invente une fonction reverse_string( $stringToReverse) <br/>
+      qui réécrit une chaine de caractères à l'envers.
+    </p>
+
+    <p class="reponse">
+      <?php
+        // Création de la fonction
+        function reverse_string($stringToReverse)
         {
-          $minuscules = strtolower($phrase_majuscule);
-          $minuscules_accentue = str_replace("Ê", "ê", $minuscules);
-          echo $minuscules_accentue;
+          $chaine_a_envers = strrev($stringToReverse);
+          echo 'A l\'endroit : ' . $stringToReverse . '<br/>';
+          echo 'A l\'envers : ' .$chaine_a_envers;
         }
 
-        //Appel de la fonction
-        minuscule($phrase_majuscule);
+        // Appel de la fonction
+        reverse_string('La vie est un long fleuve tranquille');
+      ?>
+    </p>
 
-        ?>
+    <br/>
+    <br/>
+
+    <h3>Exercice #godmode #walloniequandtunoustiens - 2</h3>
+
+    <p class="enonce">
+      En Wallonie, les mouvements de jeunesse ont une chanson populaire intitulée <br/>
+      "Buvons un coup ma serpette est perdue". Utilise la fonction str_replace avec <br/>
+      $substitutions = array( E, I, O, U, OU, É, È, OI, UI, OUI, AN, IN, ON, UN, OIN); <br/>
+      pour transformer automatiquement les voyelles du couplet selon chaque élément de l'array <br/>
+      et ainsi générer les paroles complètes de la chanson (le couplet avec chaque diphtongue remplacée).
+    </p>
+
+    <p class="reponse">
+      <!-- Paroles de la chanson originale -->
+
+      <!-- Buvons un coup ma serpette est perdue,
+      Mais le manche, mais le manche,
+      Buvons un coup ma serpette est perdue
+      Mais le manche est revenu. -->
+
+      <!-- Type de variante à obtenir en modifiant les paroles avec la lettre A -->
+
+      <!-- Bavas a ca ma sarpata a parda,
+      Ma la macha ma la macha
+      Bavas a ca ma sarpata a parda
+      Ma la macha a ravana. -->
+      <?php
+      $paroles =
+      "Buvons un coup ma serpette est perdue,<br/>
+      Mais le manche, mais le manche,<br/>
+      Buvons un coup ma serpette est perdue<br/>
+      Mais le manche est revenu.<br/><br/>";
+
+      echo $paroles;
+
+      function genere_paroles($paroles,$lettre_couplet)
+      {
+        $paroles_majuscules = strtoupper($paroles);// On met d'abord toutes les paroles en majuscules pour comparer des lettres majuscules avec des lettres majuscules uniquement
+        $paroles_majuscules_transformées =str_replace
+        (
+           array('E', 'I', 'O', 'U', 'OU', 'É', 'È', 'OI', 'UI', 'OUI', 'AN', 'IN', 'ON', 'UN', 'OIN')
+           , $lettre_couplet
+           , $paroles_majuscules
+        );
+        $chaines_transformees_minuscules = mb_strtolower($paroles_majuscules_transformées);//Avec la fonction native PHP strtolower, on remet tout le couplet en minuscules
+        $chaines_transformees_1majuscule = ucfirst($chaines_transformees_minuscules); // Avec la fonction native PHP ucfirst, on met le premier caractère de la chaîne en majuscule
+        echo $chaines_transformees_1majuscule; // On affiche les paroles du couplet modifié avec la lettre du couplet selectionnée
+      }
+
+      $lettre_couplet = "A";
+      genere_paroles($paroles, $lettre_couplet);
+
+      $lettre_couplet = "E";
+      genere_paroles($paroles, $lettre_couplet);
+
+      $lettre_couplet = "I";
+      genere_paroles($paroles, $lettre_couplet);
+
+      $lettre_couplet = "O";
+      genere_paroles($paroles, $lettre_couplet);
+
+      $lettre_couplet = "U";
+      genere_paroles($paroles, $lettre_couplet);
+
+      $lettre_couplet = "Y";
+      genere_paroles($paroles, $lettre_couplet);
+
+      ?>
     </p>
 
   </body>
