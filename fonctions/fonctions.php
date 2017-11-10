@@ -510,7 +510,7 @@ ini_set('display_errors', 1);
       Cette fonction ne va rien afficher, on veut juste qu'elle nous renvoie le volume <br/>
       qu'on cherche. Voici un schéma, pour bien t'embrouiller <br/>
       (Ben oui, en réalité, les informations utiles à cette mission sont dans le code ci-dessus...)
-      ![shéma](https://camo.githubusercontent.com/4138934898cd1684945a346c57c4048ffaebc8e9/68747470733a2f2f757365722e6f632d7374617469632e636f6d2f66696c65732f353030315f363030302f353735382e676966)
+      <img src="(https://camo.githubusercontent.com/4138934898cd1684945a346c57c4048ffaebc8e9/68747470733a2f2f757365722e6f632d7374617469632e636f6d2f66696c65732f353030315f363030302f353735382e676966" alt="shema" />
     </p>
 
     <p class="reponse">
