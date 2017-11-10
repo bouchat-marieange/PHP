@@ -641,7 +641,7 @@ ini_set('display_errors', 1);
         $paroles_majuscules = strtoupper($paroles);// On met d'abord toutes les paroles en majuscules pour comparer des lettres majuscules avec des lettres majuscules uniquement
         $paroles_majuscules_transformées =str_replace
         (
-           array('E', 'I', 'O', 'U', 'OU', 'É', 'È', 'OI', 'UI', 'OUI', 'AN', 'IN', 'ON', 'UN', 'OIN')
+           array('A','E', 'I', 'O', 'U', 'OU', 'É', 'È', 'OI', 'UI', 'OUI', 'AN', 'IN', 'ON', 'UN', 'OIN')
            , $lettre_couplet
            , $paroles_majuscules
         );
