@@ -773,9 +773,9 @@ $team[1] = 'Eden Hazard';
 $team[2] = 'Manneken Pis';
 ````
 
-## Afficher le contenu d'une variable
+## Afficher le contenu d'une variable print_r() et var_dump()
 
-print_r : permet d'afficher le contenu lisible d'une variable. 
+**print_r()**: permet d'afficher le contenu lisible d'une variable. 
 
 return :
 Si vous voulez obtenir le résultat de print_r() dans une chaîne, utilisez le paramètre return. Lorsque ce paramètre vaut TRUE, print_r() retournera l'information plutôt que de l'afficher.
@@ -852,6 +852,42 @@ Array
 )
 ````
 
+
+**var_dump()** est une fonction native de PHP. Elle affiche les informations d'une variable. Elle prend en paramètre la variable que l'on veut afficher. Aucune valeur n'est retournée, le contenu de la variable est simplement affiché
+
+````php
+<?php
+$a = array(1, 2, array("a", "b", "c"));
+var_dump($a);
+?>
+````
+
+Affichera ceci
+
+````php
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  array(3) {
+    [0]=>
+    string(1) "a"
+    [1]=>
+    string(1) "b"
+    [2]=>
+    string(1) "c"
+  }
+}
+
+````
+
+## Supprimer le contenu d'une variable
+
+unset() est une fonction native de PHP qui permet de détruire une variable. Bref une fois appliqué sur une variable, celle-ci n'existera plus.
+
+unset($variable);
 
 ### Opérations courantes
 
