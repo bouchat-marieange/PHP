@@ -1,6 +1,5 @@
 **Lancer serveur Apache**
 
-eter serveur Apache**
 ```
 sudo /opt/lampp/lampp start 
 ```
