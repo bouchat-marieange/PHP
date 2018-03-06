@@ -3,7 +3,6 @@
 eter serveur Apache**
 ```
 sudo /opt/lampp/lampp start 
-eter serveur Apache**
 ```
 
 
@@ -11,7 +10,6 @@ eter serveur Apache**
 
 ```
 apachectl -k stop
-eter serveur Apache**
 ```
 
 
